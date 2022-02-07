@@ -1,0 +1,29 @@
+<div id="contenido">
+    <div id="Titulo">
+        <label>Agregar Comunidad</label>
+    </div>
+    <form action="/Kolab/agregar/" method="post">
+        <div id="Nombres">
+            <label>Nombre</label>
+            <input type="text" name="NombreKolab" id="NombreKolab" required>
+        </div>
+        <div id="Mision">
+            <label>Mision:</label>
+           <textarea name="mision" id="mision" maxlength="1500" required></textarea>
+        </div>
+        <div id="Vision">
+            <label>Vision:</label>
+           <textarea name="vision" id="vision" maxlength="1500" required></textarea>
+        </div>
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            <input type="text" id="numero" checked>
+            <button type="button" onclick="objetivos.crear()">-></button>
+        </div>
+        <div id="Guardar">
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/objetivos.js"></script>

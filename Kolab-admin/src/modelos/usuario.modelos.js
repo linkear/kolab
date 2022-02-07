@@ -1,12 +1,13 @@
-const usuarios = (sequelize, type) =>{
+const usuarios =(sequelize, type) =>{
     return sequelize.define('usuarios', {
-        idUsuario:{
+        idUsuarios: {
             type: type.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
-        username: type.STRING,
+        username: type.STRING(99),
         password: type.STRING,
+        email: type.STRING, 
         creacionUsuarios:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

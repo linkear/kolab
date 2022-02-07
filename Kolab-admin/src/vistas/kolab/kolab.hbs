@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="">
+<form action="/Kolab/lista/{{user.idUsuario}}" method="get"></form>
+<div id="contenido">
+    <div id="tarjeta1">
+        {{#each kolab}}
+        <div id="Nombre">
+            <label>{{NombreKolab}}</label>
+        </div>
+        <div id="Mision">
+            <label>{{Mision}}</label>
+        </div>
+        <div id="vision">
+            <label>{{Vision}}</label>
+        </div>
+        <div id="BotonEditar">
+            <a href="/Kolab/editar/{{idKolab}}"><button>Editar</button></a>
+        </div>
+        {{/each}}
+    </div>
+    <div id="tarjeta2">
+        <div id="objetivos">
+             {{#each detalle}}
+            <textarea id="objetivo" readonly>{{objetivos}}</textarea>
+            {{/each}}
+        </div>
+    </div>
+</div>

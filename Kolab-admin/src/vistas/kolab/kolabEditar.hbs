@@ -1,0 +1,30 @@
+<div id="contenido">
+    <div id="Titulo">
+        <label>Editar Comunidad</label>
+    </div>
+    <form action="/Kolab/editar/{{user.idUsuario}}" method="post">
+    {{#each kolab}}
+        <div id="Nombres">
+            <label>Nombre</label>
+            <input type="text" name="NombreKolab" id="NombreKolab" value="{{NombreKolab}}" checked>
+        </div>
+        <div id="Mision">
+            <label>Mision:</label>
+            <input type="text" name="mision" id="mision" value="{{Mision}}" checked>
+        </div>
+        <div id="Vision">
+            <label>Vision:</label>
+            <input type="text" name="vision" id="vision" value="{{Vision}}" checked>
+        </div>
+        {{/each}}
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            {{#each detalle}}
+            <input type="text" id="objetivos" name="objetivos" value="{{objetivos}}" checked>
+            {{/each}}
+        </div>
+        <div id="Guardar">
+            <button type="submit">Actualizar</button>
+        </div>
+    </form>
+</div>

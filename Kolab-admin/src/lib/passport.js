@@ -14,7 +14,7 @@ passport.use(
       passReqToCallback: true
     },
     async (req, username, password, done) => {
-      const rows = await orm.usuarios.findOne({ where: { username: username } });
+      const rows = await orm.usuario.findOne({ where: { username: username } });
       if (rows) {
         const user = rows;
         const validPassword = await helpers.matchPassword(
@@ -46,14 +46,14 @@ passport.use(
       passReqToCallback: true
     },
     async (req, username, password, done) => {
-      const usuarios = await orm.usuarios.findOne({ where: { username: username } });
+      const usuarios = await orm.usuario.findOne({ where: { username: username } });
       if (usuarios === null) {
         let nuevoUsuario = {
           username,
           password
         };
         nuevoUsuario.password = await helpers.encryptPassword(password);
-        const resultado = await orm.usuarios.create(nuevoUsuario);
+        const resultado = await orm.usuario.create(nuevoUsuario);
         nuevoUsuario.id = resultado.insertId;
         return done(null, nuevoUsuario);
       } else {
@@ -67,7 +67,7 @@ passport.use(
               password
             };
             nuevoUsuario.password = await helpers.encryptPassword(password);
-            const resultado = await orm.usuarios.create(nuevoUsuario);
+            const resultado = await orm.usuario.create(nuevoUsuario);
             nuevoUsuario.id = resultado.insertId;
             return done(null, nuevoUsuario);
           }
