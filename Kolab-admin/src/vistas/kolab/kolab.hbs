@@ -4,13 +4,15 @@
     <div id="tarjeta1">
         {{#each kolab}}
         <div id="Nombre">
-            <label>{{NombreKolab}}</label>
+            <p>{{NombreKolab}}</p>
         </div>
         <div id="Mision">
-            <label>{{Mision}}</label>
+            <label>Misión:</label>
+            <p>{{Mision}}</p>
         </div>
         <div id="vision">
-            <label>{{Vision}}</label>
+            <label>Visión:</label>
+            <p>{{Vision}}</p>
         </div>
         <div id="BotonEditar">
             <a href="/Kolab/editar/{{idKolab}}"><button>Editar</button></a>
@@ -19,6 +21,7 @@
     </div>
     <div id="tarjeta2">
         <div id="objetivos">
+            <label>Objetivos:</label>
              {{#each detalle}}
             <textarea id="objetivo" readonly>{{objetivos}}</textarea>
             {{/each}}
