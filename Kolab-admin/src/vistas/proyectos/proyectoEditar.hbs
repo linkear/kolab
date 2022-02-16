@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="">
+<div id="contenido">
+    <form action="/proyecto/Editar/{{user.idUsuarios}}" method="post">
+        {{#each proyectos}}
+        <div id="NombreProyecto">
+            <label>Nombre del Proyecto:</label>
+            <input type="text" name="NombreProyecto" id="nombre" value="{{NombreProyecto}}" checked>
+        </div>
+        <div id="Descripcion">
+            <label>Descripcion del Proyecto:</label>
+            <textarea name="DecripcionProyecto" id="descripcion" maxlength="1500" aria-checked="true">{{DecripcionProyecto}}</textarea>
+        </div>
+        <div id="Fecha">
+            <label>Fecha del Proyecto:</label>
+            <input type="text" name="fechaProyecto" id="fecha" value="{{fechaProyecto}}" checked>
+        </div>
+        <div id="Vision">
+            <label>Vision:</label>
+            <input type="text" name="Vision" id="vision" value="{{visionProyecto}}" checked>
+        </div>
+        <div id="Mision">
+            <label>Mision:</label>
+            <input type="text" name="Mision" id="mision" value="{{MisionProyecto}}" checked>
+        </div>
+        {{/each}}
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            {{#each detalle}}
+            <input type="text" id="objetivos" name="objetivos" value="{{objetivos}}" checked>
+            {{/each}}
+        </div>
+        <div id="Guardar">
+            <button type="submit">Actualizar</button>
+        </div>
+    </form>
+</div>

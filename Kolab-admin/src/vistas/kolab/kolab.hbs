@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="">
-<form action="/Kolab/lista/{{user.idUsuario}}" method="get"></form>
+<form action="/Kolab/lista/{{user.idUsuarios}}" method="get"></form>
 <div id="contenido">
     <div id="tarjeta1">
         {{#each kolab}}
@@ -17,13 +17,18 @@
         <div id="BotonEditar">
             <a href="/Kolab/editar/{{idKolab}}"><button>Editar</button></a>
         </div>
+        <div id="BotonAgregar">
+            <a href="/proyecto/agregar/{{idKolab}}"><button>Agregar Proyecto</button></a>
+        </div>
         {{/each}}
     </div>
     <div id="tarjeta2">
         <div id="objetivos">
             <label>Objetivos:</label>
-             {{#each detalle}}
-            <textarea id="objetivo" readonly>{{objetivos}}</textarea>
+            {{#each detalle}}
+            <p>
+                <li>{{objetivos}}</li>
+            </p>
             {{/each}}
         </div>
     </div>

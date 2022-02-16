@@ -1,19 +1,16 @@
-const usuarios =(sequelize, type) =>{
-    return sequelize.define('usuarios', {
-        idUsuarios: {
+const detalleRol = (sequelize, type) =>{
+    return sequelize.define('detalleRols', {
+        idDetalleRol: {
             type: type.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: true
         },
-        username: type.STRING(99),
-        password: type.STRING,
-        email: type.STRING, 
-        creacionUsuarios:{
+        creacionDetalleRol:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
             allowNull: false
         },
-        actualizacionUsuarios:{
+        actualizacionDetalleRol:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP '),
             allowNull: false
@@ -23,4 +20,4 @@ const usuarios =(sequelize, type) =>{
     })
 }
 
-module.exports = usuarios
+module.exports = detalleRol

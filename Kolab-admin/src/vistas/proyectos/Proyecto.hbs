@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="style.css">
+<form action="/Proyecto/Lista/{{user.idUsuarios}}" method="get"></form>
+<div id="contenido">
+    <div class="row">
+        {{#each listaProyecto}}
+        <div id="trajeta">
+            <div id="Nombre">
+                <label>{{NombreProyecto}}</label>
+            </div>
+            <div id="Descripcion">
+                <label>Descripción:</label>
+                <p>{{DecripcionProyecto}}</p>
+            </div>
+            <div id="Fecha">
+                <label> Fecha:</label>
+                <p>{{fechaProyecto}}</p>
+            </div>
+            <div id="Editar">
+                <a href="/proyecto/Editar/{{idProyecto}}"><button>Editar</button></a>
+            </div>
+            <div id="Detalle">
+                <a href="/proyecto/Lista/detalle/{{idProyecto}}"><button>Detalle</button></a>
+            </div>
+            <div id="Eliminar">
+                <a href="/proyecto/Eliminar/{{idProyecto}}"><button>Eliminar</button></a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

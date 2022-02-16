@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="style.css">
+<form action="/proyecto/Lista/detalle/{{user.idUsuarios}}" method="get"></form>
+<div id="contenido">
+    <div id="Tarjeta1">
+        {{#each proyecto}}
+        <div id="Nombre">
+            <label>{{NombreProyecto}}</label>
+        </div>
+        <div id="Descripcion">
+            <label>Descripción:</label>
+            <p>{{DecripcionProyecto}}</p>
+        </div>
+        <div id="Vision">
+            <label>Visión:</label>
+            <p>{{visionProyecto}}</p>
+        </div>
+        <div id="Mision">
+            <label>Misión:</label>
+            <p>{{visionProyecto}}</p>
+        </div>
+        <div id="Fecha">
+            <label> Fecha:</label>
+            <p>{{fechaProyecto}}</p>
+        </div>
+        <div id="Editar">
+            <a href="/proyecto/Editar/{{idProyecto}}"><button>Editar</button></a>
+        </div>
+        {{/each}}
+    </div>
+    <div id="tarjeta2">
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            {{#each detalle}}
+            <p>
+                <li>{{objetivos}}</li>
+            </p>
+            {{/each}}
+        </div>
+    </div>
+</div>

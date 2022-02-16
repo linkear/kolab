@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="">
+<div id="contenido">
+    <form action="/proyecto/Agregar/{{user.idUsuarios}}" method="post">
+        <div id="rol">
+            {{#each rol}}
+            <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
+            {{/each}}
+        </div>
+        <div id="numeroPoryecto">
+            <label> Proyecto N°</label>
+            {{#each idProyecto}}
+            <input type="text" name="numero" id="numero" value="{{'max(idProyecto)'}}" readonly>
+            {{/each}}
+        </div>
+        <div id="NombreProyecto">
+            <label>Nombre del Proyecto:</label>
+            <input type="text" name="NombreProyecto" id="nombre" checked>
+        </div>
+        <div id="Descripcion">
+            <label>Descripcion del Proyecto:</label>
+            <textarea name="DecripcionProyecto" id="descripcion" maxlength="1500" aria-checked="true"></textarea>
+        </div>
+        <div id="Fecha">
+            <label>Fecha del Proyecto:</label>
+            <input type="text" name="fechaProyecto" id="fecha" checked>
+        </div>
+        <div id="Vision">
+            <label>Vision:</label>
+            <input type="text" name="Vision" id="vision" checked>
+        </div>
+        <div id="Mision">
+            <label>Mision:</label>
+            <input type="text" name="Mision" id="mision" checked>
+        </div>
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            <input type="text" id="numeros" checked>
+            <button type="button" onclick="objetivos.crear()">-></button>
+        </div>
+        <div id="Guardar">
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/numero.js"></script>
+<script src="/js/objetivos.js"></script>

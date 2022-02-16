@@ -63,5 +63,6 @@ app.use(require('./rutas/registro.rutas'))
 app.use(require('./rutas/usuario.rutas'))
 app.use('/actualizacion', require('./rutas/actulizarDatos.rutas'));
 app.use('/kolab', require('./rutas/kolab.rutas'))
+app.use('/proyecto',require('./rutas/proyecto.rutas'))
 
 module.exports = app;

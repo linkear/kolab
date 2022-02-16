@@ -5,6 +5,7 @@ const detalleProyecto = (sequelize, type) => {
             primaryKey: true,
             autoIncrement: true
         },
+        objetivos: type.STRING(1500),
         creacionDetalleProyectos:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
