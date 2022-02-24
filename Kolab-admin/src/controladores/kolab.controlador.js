@@ -4,8 +4,9 @@ const orm = require('../configuracionBaseDatos/baseDatos.orm')
 const sql = require('../configuracionBaseDatos/baseDatos.sql');
 
 
-kolabcontrolador.mostrar = (req, res) =>{
-    res.render('kolab/kolabAgregar');
+kolabcontrolador.mostrar = async(req, res) =>{
+    const traer = await sql.query('select * from kolabs')
+    res.render('kolab/kolabAgregar', {traer});
 }
 
 kolabcontrolador.mandar = async (req, res) =>{

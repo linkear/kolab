@@ -5,8 +5,10 @@ const doers = (sequelize, type) =>{
             primaryKey: true,
             autoIncrement: true
         },
+        Cedula: type.STRING,
         NombreDoers: type.STRING,
         Edad: type.INTEGER,
+        Telefono: type.STRING,
         DescripcionDoers: type.STRING(1500),
         creacionDoers:{
             type: 'TIMESTAMP',

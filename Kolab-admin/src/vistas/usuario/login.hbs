@@ -1,5 +1,5 @@
 <LINK REL=StyleSheet HREF="/css/login/ingreso.css" TYPE="text/css" MEDIA=screen>
-<form action="/Login" method="POST" id="ingresar">
+<form action="/Login/{{user.idUsuarios}}" method="POST" id="ingresar">
 <div id="imagen">
   <img src="/img/fondo.png" >
 </div>
@@ -8,11 +8,13 @@
       Login
     </div>
     <div id="datos">
-      <input type="text" id="Nombre" name="username" placeholder="Usuario:">
+      {{#each datos}}
+      <input type="text" id="Nombre" name="username" placeholder="Usuario:" value="{{username}}">
     </div>
     <div id="contraseñas">
       <input type="password" id="Contraseña" name="password" placeholder="Contraseña:">
-      <a href="/actualizacion/Datos/">Cambiar contraseña</a>
+      <a href="/actualizacion/Datos/{{idUsuarios}}">Cambiar contraseña</a>
+      {{/each}}
     </div>
     <div>
       <button type="submit" id="boton">Ingresar</button>

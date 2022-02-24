@@ -1,22 +1,25 @@
 const authCtrl = {};
 
+const sql = require('../configuracionBaseDatos/baseDatos.sql')
 const passport = require('passport');
 
-authCtrl.renderSignUp = (req, res) => {
+authCtrl.mostrarRegistro = (req, res) => {
     res.render('usuario/registro');
 };
 
-authCtrl.signUp = passport.authenticate('local.signup', {
+authCtrl.registro = passport.authenticate('local.signup', {
     successRedirect: '/CerrarSecion',
     failureRedirect: '/registro',
     failureFlash: true
 });
 
-authCtrl.renderSignIn = (req, res, next) => {
-    res.render('usuario/login');
+authCtrl.mostrarLogin = async(req, res, next) => {
+    const id = req.params.id
+    const datos = await sql.query('select username from usuarios where idUsuarios = ?' ,[id])
+    res.render('usuario/login', {datos});
 };
 
-authCtrl.signIn = passport.authenticate('local.signin', {
+authCtrl.ingreso = passport.authenticate('local.signin', {
     successRedirect: '/Kolab/agregar/',
     failureRedirect: '/login',
     failureFlash: true

@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const { renderSignUp, signUp, renderSignIn, signIn, cierreSeccion } = require('../controladores/registro.controlador')
+const { cierreSeccion, mostrarLogin, ingreso, mostrarRegistro, registro } = require('../controladores/registro.controlador')
 
 // SIGNUP
-router.get('/Registro', renderSignUp);
-router.post('/Registro', signUp);
+router.get('/Registro', mostrarRegistro);
+router.post('/Registro', registro);
 
 // SINGIN
-router.get('/', renderSignIn);
-router.post('/Login', signIn);
+router.get('/Login/:id', mostrarLogin);
+router.post('/Login/', ingreso);
 
 router.get('/cerrarSecion', cierreSeccion);
 

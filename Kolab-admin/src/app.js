@@ -59,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routers
+app.use(require('./rutas/index.rutas'))
 app.use(require('./rutas/registro.rutas'))
 app.use(require('./rutas/usuario.rutas'))
 app.use('/actualizacion', require('./rutas/actulizarDatos.rutas'));

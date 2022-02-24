@@ -77,6 +77,9 @@ kolab.belongsTo(usuario)
 kolab.hasMany(dores)
 dores.belongsTo(kolab)
 
+proyecto.hasMany(dores)
+dores.belongsTo(proyecto)
+
 kolab.hasMany(proyecto)
 proyecto.belongsTo(kolab)
 
