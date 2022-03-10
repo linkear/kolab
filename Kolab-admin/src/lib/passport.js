@@ -48,13 +48,23 @@ passport.use(
     async (req, username, password, done) => {
       const usuarios = await orm.usuario.findOne({ where: { username: username } });
       if (usuarios === null) {
+        const { contador, numeroUsuario, rolNumero } = req.body
+        let nuevoDetalleROL = {
+          usuarioIdUsuarios: numeroUsuario,
+          RolIdRol: rolNumero
+        }
         let nuevoUsuario = {
           username,
           password
         };
+        let nuevoContador = {
+          contador
+        }
         nuevoUsuario.password = await helpers.encryptPassword(password);
         const resultado = await orm.usuario.create(nuevoUsuario);
         nuevoUsuario.id = resultado.insertId;
+        await orm.detalleRol.create(nuevoDetalleROL)
+        await orm.contador.create(nuevoContador)
         return done(null, nuevoUsuario);
       } else {
         if (usuarios) {
@@ -62,13 +72,23 @@ passport.use(
           if (username == usuario.username) {
             done(null, false, req.flash("message", "El nombre de usuario ya existe."))
           } else {
+            const { contador, numeroUsuario, rolNumero } = req.body
             let nuevoUsuario = {
               username,
               password
             };
+            let nuevoDetalleROL = {
+              usuarioIdUsuarios: numeroUsuario,
+              RolIdRol: rolNumero
+            }
+            let nuevoContador = {
+              contador
+            }
             nuevoUsuario.password = await helpers.encryptPassword(password);
             const resultado = await orm.usuario.create(nuevoUsuario);
             nuevoUsuario.id = resultado.insertId;
+            await orm.detalleRol.create(nuevoDetalleROL)
+            await orm.contador.create(nuevoContador)
             return done(null, nuevoUsuario);
           }
         }

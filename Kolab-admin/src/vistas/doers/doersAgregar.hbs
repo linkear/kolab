@@ -1,6 +1,17 @@
 <link rel="stylesheet" href="style.css">
 <form action="/doers/agregar/{{user.idUsuarios}}" method="post">
     <div id="contenido">
+        <div id="kolab">
+            {{#each kolab}}
+            <input type="text" name="Kolab" id="Kolab" value="{{'max(idKolab)'}}" readonly checked>
+            {{/each}}
+            {{#each proyecto}}
+            <input type="text" name="idProyecto" id="idProyecto" value="{{idProyecto}}" readonly checked>
+            {{/each}}
+            {{#each rol}}
+            <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
+            {{/each}}
+        </div>
         <div id="Cedula">
             <label>Cedula:</label>
             <input type="text" name="Cedula" id="cedula" checked>
@@ -14,7 +25,7 @@
             <input type="text" name="Edad" id="edad" checked>
         </div>
         <div id="Telefono">
-            <label>Telefono:</label>
+            <label>Celular:</label>
             <input type="text" name="Telefono" id="telefono" checked>
         </div>
         <div id="DescripcionDoers">

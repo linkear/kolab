@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="">
-<form action="/doers/listaCompleta/{{user.idUsuarios}}" method="get"></form>
+<form action="/doers/Lista/{{user.idUsuarios}}" method="get"></form>
 <div id="contenido">
     <div class="row">
-         {{#each doers}}
+        {{#each doers}}
         <div id="tarjeta">
             <div id="Nombres">
                 <label>{{NombreDoers}}</label>
@@ -16,13 +16,12 @@
             <div id="detalle">
                 <a href="/doers/detalle/{{idDoers}}"><button>Detalle</button></a>
             </div>
-            <div id="Eliminar"></div>
-             <a href="/doers/Eliminar/{{idDoers}}"><button>Eliminar</button></a>
         </div>
         {{/each}}
     </div>
 </div>
-
 <div id="agregar">
-    <a href="/doers/agregar/{{user.idUsuarios}}"><button>+</button></a>
+    {{#each proyecto}}
+    <a href="/doers/agregar/{{idProyecto}}"><button>+</button></a>
+    {{/each}}
 </div>

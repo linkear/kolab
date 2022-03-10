@@ -29,7 +29,9 @@ proyectocontrolador.Mandar = async (req, res) => {
     if (rol === 'administrador') {
         res.redirect('/proyecto/lista/' + kolab);
     } else {
-        res.redirect('/proyecto/Lista/detalle/' + numero);
+        if (rol === 'doers') {
+            res.redirect('/proyecto/Lista/detalle/' + numero);
+        }
     }
 }
 
@@ -50,7 +52,7 @@ proyectocontrolador.eliminarProyecto = async (req, res) => {
     const id = req.params.id
     await orm.proyecto.destroy({ where: { idProyecto: id } });
     req.flash('success', 'Se Elimino Correctamente');
-    res.redirect('/proveedor/lista/' + id);
+    res.redirect('/proyecto/lista/' + id);
 }
 
 proyectocontrolador.MostarProyecto = async (req, res) => {
@@ -64,8 +66,7 @@ proyectocontrolador.actualizarProyectos = async (req, res) => {
     const id = req.params.id
     const ids = req.user.idUsuarios
     const { NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, objetivos } = req.body
-
-    await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto,fechaProyecto, Vision, Mision, id])
+    await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, id])
     for (let i = 0; i < objetivos.length; i++) {
         await sql.query('UPDATE detalleproyectos set objetivos = ?, usuarioIdUsuarios = ? WHERE ProyectoIdProyecto = ?', [objetivos[i], ids, id])
     }

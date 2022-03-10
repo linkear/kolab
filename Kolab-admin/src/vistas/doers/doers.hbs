@@ -1,16 +1,21 @@
 <link rel="stylesheet" href="">
+<form action="/doers/detalle/{{user.idUsuarios}}" method="get"></form>
 <div id="contenido">
-    <div class="row">
-        <div id="tarjeta">
-            <div id="Nombres">
-                <label></label>
-            </div>
-            <div id="Edad">
-                <p></p>
-            </div>
-            <div id="Descripcion">
-                <p></p>
-            </div>
-        </div>
+    {{#each doers}}
+    <div id="cedula">
+        <p>{{Cedula}}</p>
     </div>
+    <div id="Nombres">
+        <label>{{NombreDoers}}</label>
+    </div>
+    <div id="Edad">
+        <p>{{Edad}}</p>
+    </div>
+    <div id="Telefono">
+        <p>{{Telefono}}</p>
+    </div>
+    <div id="Descripcion">
+        <p>{{DescripcionDoers}}</p>
+    </div>
+    {{/each}}
 </div>
