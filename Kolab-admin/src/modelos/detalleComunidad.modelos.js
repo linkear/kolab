@@ -6,6 +6,7 @@ const detalleComunidad = (sequelize, type) =>{
             autoIncrement: true
         },
         participantes: type.STRING,
+        telefonoParticipante: type.STRING,
         creacionDetalleComunidad:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

@@ -12,9 +12,9 @@ doersControlador.mostrar = async (req, res) => {
 }
 
 doersControlador.Mandar = async (req, res) => {
-    const id  = req.params.id
+    const id = req.params.id
     const ids = req.user.idUsuarios
-    const {Cedula, NombreDoers, Edad, Telefono, DescripcionDoers, Kolab, idProyecto, rol} = req.body
+    const { Cedula, NombreDoers, Edad, Telefono, DescripcionDoers, Kolab, idProyecto, rol } = req.body
     const nuevoEnvio = {
         Cedula,
         NombreDoers,
@@ -38,7 +38,7 @@ doersControlador.Mandar = async (req, res) => {
 
 doersControlador.ListaCompleta = async (req, res) => {
     const doers = await sql.query('select * from doers')
-    res.render('doers/listaDoers', {doers})
+    res.render('doers/listaDoers', { doers })
 }
 
 doersControlador.lista = async (req, res) => {
@@ -66,38 +66,24 @@ doersControlador.traer = async (req, res) => {
     const ids = req.user.idUsuarios
     const doers = await sql.query('select * from doers where idDoers = ?', [id])
     const rol = await sql.query('select r.nombreRol from rols r join detallerols d on  d.RolIdRol = r.idRol WHERE d.usuarioIdUsuarios = ?', [ids])
-    res.render('doers/doersEditar',{ doers, rol})
+    res.render('doers/doersEditar', { doers, rol })
 }
 
 doersControlador.modificar = async (req, res) => {
     const id = req.params.id
     const ids = req.user.idUsuarios
     const { Cedula, NombreDoers, Edad, Telefono, DescripcionDoers, rol } = req.body
-    const nuevoEnvio = {
-        Cedula,
-        NombreDoers,
-        Edad,
-        Telefono,
-        DescripcionDoers,
-        usuarioIdUsuarios: ids
-    }
     if (rol === 'administrador') {
-        await orm.doers.findOne({ where: { idDoers: ids } })
-            .then(actualizarEnvio => {
-                actualizarEnvio.update(nuevoEnvio)
-                req.flash('success', 'Se actualizo con exito')
-                res.redirect('/doers/listaCompleta/' + id);
-            })
+        await sql.query('UPDATE doers set Cedula = ?, NombreDoers = ?, Edad = ?, Telefono = ?, DescripcionDoers = ?, usuarioIdUsuarios = ? where idDoers = ?', [Cedula, NombreDoers, Edad, Telefono, DescripcionDoers, ids, id])
+        req.flash('success', 'Se actualizo con exito')
+        res.redirect('/doers/listaCompleta/' + ids);
     } else {
         if (rol === 'doers') {
-            await orm.doers.findOne({ where: { idDoers: ids } })
-                .then(actualizarEnvio => {
-                    actualizarEnvio.update(nuevoEnvio)
-                    req.flash('success', 'Se actualizo con exito')
-                    res.redirect('/doers/Lista/' + id);
-                })
+            await sql.query('UPDATE doers set Cedula = ?, NombreDoers = ?, Edad = ?, Telefono = ?, DescripcionDoers = ?, usuarioIdUsuarios = ? where idDoers = ?', [Cedula, NombreDoers, Edad, Telefono, DescripcionDoers, ids, id])
+            req.flash('success', 'Se actualizo con exito')
+            res.redirect('/doers/Lista/' + ids);
         }
     }
 }
 
-module. exports = doersControlador
+module.exports = doersControlador

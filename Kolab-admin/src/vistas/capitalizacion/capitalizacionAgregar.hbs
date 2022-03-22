@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="">
+<form action="/capitalizacion/agregar/{{user.idUsuarios}}" method="post">
+    <div id="contenido">
+        <p>Capitalizadores</p>
+        <div id="nombreCapitalizador">
+            <label>Nombre:</label>
+            <input type="text" name="nombreCapitalizador" id="nombre" checked aria-checked="true">
+        </div>
+        <div id="descripcionCapitalizador">
+            <label>Descripción:</label>
+            <input type="text" name="descripcionCapitalizador" id="descripcion" checked aria-checked="true">
+        </div>
+        <div id="guardar">
+            <button type="submit">Guardar</button>
+        </div>
+    </div>
+</form>

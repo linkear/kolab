@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="">
+<form action="/comunidad/editar/{{user.idUsuarios}}" method="post">
+    <div id="contenido">
+        {{#each }}
+        <div id="NombreComunidad">
+            <label>Nombre de la Comunidad:</label>
+            <input type="text" name="NombreComunidad" id="NombreComunidad" value="{{NombreComunidad}}" checked aria-checked="true">
+        </div>
+        <div id="Descripcion">
+            <label>Descripción:</label>
+            <input type="text" name="DescripcionComunidad" id="DescripcionComunidad" value="{{DescripcionComunidad}}" checked aria-checked="true">
+        </div>
+        <div id="">
+            <label> Responsable:</label>
+            <input type="text" name="participantes" id="participantes" value="{{participantes}}" checked aria-checked="true">
+        </div>
+        <div id="Guardar">
+            <button type="submit">Guardar</button>
+        </div>
+        {{/each}}
+    </div>
+</form>

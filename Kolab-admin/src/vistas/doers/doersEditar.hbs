@@ -1,28 +1,35 @@
 <link rel="stylesheet" href="style.css">
 <form action="/doers/editar/{{user.idUsuarios}}" method="post">
     <div id="contenido">
+        <div id="Rol">
+            {{#each rol}}
+            <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
+            {{/each}}
+        </div>
+        {{#each doers}}
         <div id="Cedula">
             <label>Cedula:</label>
-            <input type="text" name="Cedula" id="cedula" checked>
+            <input type="text" name="Cedula" id="cedula" value="{{Cedula}}" checked>
         </div>
         <div id="Nombre">
             <label>Nombre Completo:</label>
-            <input type="text" name="NombreDoers" id="nombre" checked>
+            <input type="text" name="NombreDoers" id="nombre" value="{{NombreDoers}}" checked>
         </div>
         <div id="Edad">
             <label>Edad:</label>
-            <input type="text" name="Edad" id="edad" checked>
+            <input type="text" name="Edad" id="edad" value="{{Edad}}" checked>
         </div>
         <div id="Telefono">
             <label>Telefono:</label>
-            <input type="text" name="Telefono" id="telefono" checked>
+            <input type="text" name="Telefono" id="telefono" value="{{Telefono}}" checked>
         </div>
         <div id="DescripcionDoers">
             <label>Descripción:</label>
-            <input type="text" name="DescripcionDoers" id="descripcion" checked>
+            <textarea name="DescripcionDoers" id="descripcion" maxlength="1500" aria-checked="true" checked>{{DescripcionDoers}}</textarea>
         </div>
         <div id="Guardar">
             <button type="submit">Guardar</button>
         </div>
+        {{/each}}
     </div>
 </form>

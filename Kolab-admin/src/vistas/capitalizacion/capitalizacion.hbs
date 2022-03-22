@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="">
+<form action="/capitalizacion/lista/{{user.idUsuarios}}" method="get"></form>
+<div id="contenido">
+    <div class="row">
+        {{#each lista}}
+        <div id="tarjeta">
+            <div id="Nombre">
+                <label>{{nombreCapitalizador}}</label>
+            </div>
+            <div id="Descripcion">
+                <p>{{descripcionCapitalizador}}</p>
+            </div>
+            <div id="Editar">
+                <a href="/capitalizacion/editar/{{idCapitalizacion}}"><button>Editar</button></a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

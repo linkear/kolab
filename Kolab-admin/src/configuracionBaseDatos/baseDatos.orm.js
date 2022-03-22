@@ -119,6 +119,7 @@ module.exports = {
   doers,
   detalleProyecto,
   detalleKolab,
+  comunidad,
   detalleComunidad,
   clientes,
   capitalizacion, 

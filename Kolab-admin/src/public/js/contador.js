@@ -3,6 +3,10 @@ class contador {
         this.contadores = document.getElementById('contar')
         this.numeroUsuario = document.getElementById('numeroUsuario')
         this.rolNumero = document.getElementById('rolNumero')
+        this.contador = document.getElementById('contador')
+    }
+    inicio(){
+        this.contador.style.display = 'none'
     }
     cambio(){
         if(this.contadores.value === ''){
@@ -19,3 +23,4 @@ class contador {
 
 let numeroContador = new contador()
 window.onload = numeroContador.cambio()
+window.onload = numeroContador.inicio()

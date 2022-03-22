@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="">
+<form action="/capitalizacion/editar/{{user.idUsuarios}}" method="post">
+    <div id="contenido">
+        {{#each traer}}
+        <p>Capitalizadores</p>
+        <div id="nombreCapitalizador">
+            <label>Nombre:</label>
+            <input type="text" name="nombreCapitalizador" id="nombre" value="{{nombreCapitalizador}}" checked aria-checked="true">
+        </div>
+        <div id="descripcionCapitalizador">
+            <label>Descripción:</label>
+            <input type="text" name="descripcionCapitalizador" id="descripcion" value="{{descripcionCapitalizador}}" checked aria-checked="true">
+        </div>
+        <div id="guardar">
+            <button type="submit">Actualizar</button>
+        </div>
+        {{/each}}
+    </div>
+</form>

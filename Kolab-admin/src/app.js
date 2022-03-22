@@ -66,5 +66,7 @@ app.use('/actualizacion', require('./rutas/actulizarDatos.rutas'));
 app.use('/kolab', require('./rutas/kolab.rutas'))
 app.use('/proyecto',require('./rutas/proyecto.rutas'))
 app.use('/doers', require('./rutas/doers.rutas'))
+app.use('/comunidad', require('./rutas/comunidad.rutas'))
+app.use('/capitalizacion', require('./rutas/capitalizacion'))
 
 module.exports = app;

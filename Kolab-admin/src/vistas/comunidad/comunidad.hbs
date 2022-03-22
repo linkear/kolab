@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="">
+<form action="/comunidad/lista/{{user.idUsuarios}}" method="get"></form>
+<div id="contenido">
+    <div class="row">
+        {{#each detalle}}
+        <div id="Tarjeta">
+            <div id="NombreComunidad">
+                <label>{{NombreComunidad}}</label>
+            </div>
+            <div id="Descripcion">
+                <p>{{DescripcionComunidad}}</p>
+            </div>
+            <div id="FechaComunidad">
+                <p>{{FechaComunidad}}</p>
+            </div>
+        </div>
+        {{/each}}
+        {{#each datosExtra}}
+        <div id="participantes">
+            <p>{{participantes}}</p>
+        </div>
+        <div id="telefono">
+            <p>{{telefonoParticipante}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>

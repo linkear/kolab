@@ -4,8 +4,10 @@ class roles {
         this.nombreRol = document.getElementById('nombreRol')
         this.contenido1 = document.getElementById('contenido1')
         this.contenido2 = document.getElementById('contenido2')
+        this.Rol = document.getElementById('rol')
     }
     inicio(){
+        this.Rol.style.display = 'none'
         this.contenido1.style.display = 'none'
         this.contenido2.style.display = 'none'
         rol.cambio()
