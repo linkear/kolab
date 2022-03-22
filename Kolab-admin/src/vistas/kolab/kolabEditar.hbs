@@ -2,8 +2,10 @@
     <div id="Titulo">
         <label>Editar Comunidad</label>
     </div>
-    <form action="/Kolab/editar/{{user.idUsuarios}}" method="post">
     {{#each kolab}}
+    <form action="/Kolab/editar/{{idKolab}}" method="post">
+    {{/each}}
+        {{#each kolab}}
         <div id="Nombres">
             <label>Nombre</label>
             <input type="text" name="NombreKolab" id="NombreKolab" value="{{NombreKolab}}" checked>

@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="">
 <div id="contenido">
-    <form action="/proyecto/Editar/{{user.idUsuarios}}" method="post">
+    {{#each proyectos}}
+    <form action="/proyecto/Editar/{{idProyecto}}" method="post">
+    {{/each}}
         {{#each proyectos}}
         <div id="NombreProyecto">
             <label>Nombre del Proyecto:</label>

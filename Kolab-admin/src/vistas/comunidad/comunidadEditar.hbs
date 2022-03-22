@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="">
-<form action="/comunidad/editar/{{user.idUsuarios}}" method="post">
+{{#each Traer}}
+<form action="/comunidad/editar/{{idComunidad}}" method="post">
+{{/each}}
     <div id="contenido">
-        {{#each }}
+        {{#each Traer}}
         <div id="NombreComunidad">
             <label>Nombre de la Comunidad:</label>
             <input type="text" name="NombreComunidad" id="NombreComunidad" value="{{NombreComunidad}}" checked aria-checked="true">

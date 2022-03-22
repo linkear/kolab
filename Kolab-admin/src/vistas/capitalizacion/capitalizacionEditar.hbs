@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="">
-<form action="/capitalizacion/editar/{{user.idUsuarios}}" method="post">
+{{#each traer}}
+<form action="/capitalizacion/editar/{{idCapitalizacion}}" method="post">
+{{/each}}
     <div id="contenido">
         {{#each traer}}
         <p>Capitalizadores</p>

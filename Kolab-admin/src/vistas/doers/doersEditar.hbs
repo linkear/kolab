@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="style.css">
-<form action="/doers/editar/{{user.idUsuarios}}" method="post">
+{{#each doers}}
+<form action="/doers/editar/{{idDoers}}" method="post">
+{{/each}}
     <div id="contenido">
         <div id="Rol">
             {{#each rol}}
