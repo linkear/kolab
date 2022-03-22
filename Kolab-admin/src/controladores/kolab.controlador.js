@@ -43,12 +43,12 @@ kolabcontrolador.mostrarEdicion = async(req, res) =>{
 
 kolabcontrolador.actualizar = async(req, res) =>{
     const ids = req.params.id
+    const id = req.user.idUsuarios
     const {NombreKolab, mision, vision, objetivos} = req.body
     const nuevoEnvio={
         NombreKolab,
         Mision: mision,
-        Vision: vision,
-        usuarioIdUsuarios: ids
+        Vision: vision
     }
 
     await orm.kolab.findOne({ where: { idKolab: ids}})
@@ -56,7 +56,7 @@ kolabcontrolador.actualizar = async(req, res) =>{
         actualizarEnvio.update(nuevoEnvio)
     })
     for(let i = 0; i< objetivos.length; i++){
-        await sql.query('UPDATE detallekolabs(objetivos, KolabIdKolab) VALUES (?,?)',[objetivos[i], ids])
+        await sql.query('UPDATE detallekolabs set objetivos = ?, KolabIdKolab = ? where idDetalleKolab = ?',[objetivos[i], id, ids])
     }
     req.flash('success', 'Exito al Actualizar')
     res.redirect('/Kolab/lista/' + ids);
