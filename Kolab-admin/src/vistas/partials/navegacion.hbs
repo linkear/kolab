@@ -1,17 +1,20 @@
-<link rel="stylesheet" href="/css/navegacion.css">
+<link rel="stylesheet" href="/css/partials/navegacion.css" />
 {{#if user}}
 <nav id="navegacion">
-  <div id="nav1">
-    <a id="nav" href="/Proyecto/Lista/{{user.idUsuarios}}">Proyecto</a>
-  </div>
-  <div id="nav2">
-    <a href="/Kolab/lista/{{user.idUsuarios}}">Kolab</a>
-  </div>
-  <div id="nav3">
-    <a href="/capitalizacion/lista/{{user.idUsuarios}}">Capitalizacion</a>
-  </div>
-  <div id="nav5">
-    <a href="/CerrarSecion">Cierre la Sesión</a>
-  </div>
+    <div id="nav1">
+        <a id="nav" href="/Proyecto/Lista/{{user.idUsuarios}}">Proyecto</a>
+    </div>
+
+    <div id="nav2">
+        <a href="/Kolab/lista/{{user.idUsuarios}}">Kolab</a>
+    </div>
+
+    <div id="nav3">
+        <a href="/capitalizacion/lista/{{user.idUsuarios}}">Capitalizacion</a>
+    </div>
+
+    <div id="nav5">
+        <a href="/CerrarSesion">Cierre la Sesión</a>
+    </div>
 </nav>
 {{/if}}

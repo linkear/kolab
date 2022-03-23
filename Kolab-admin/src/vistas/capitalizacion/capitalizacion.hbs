@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="/css/capitalizacion/capitalizacion.css">
 <form action="/capitalizacion/lista/{{user.idUsuarios}}" method="get"></form>
 <div id="contenido">
     <div class="row">
@@ -7,9 +7,11 @@
             <div id="Nombre">
                 <label>{{nombreCapitalizador}}</label>
             </div>
+
             <div id="Descripcion">
                 <p>{{descripcionCapitalizador}}</p>
             </div>
+
             <div id="Editar">
                 <a href="/capitalizacion/editar/{{idCapitalizacion}}"><button>Editar</button></a>
             </div>
