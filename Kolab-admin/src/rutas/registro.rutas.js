@@ -12,6 +12,6 @@ router.get('/Login/:id', mostrarLogin);
 router.post('/Login/', ingreso);
 router.post('/Login1/', ingreso1)
 
-router.get('/CerrarSecion', cierreSeccion);
+router.get('/CerrarSesion', cierreSeccion);
 
 module.exports = router;
