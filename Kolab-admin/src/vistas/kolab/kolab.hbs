@@ -1,27 +1,35 @@
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="/css/kolab/kolab.css">
+    <div id="fondo"></div>
+
 <form action="/Kolab/lista/{{user.idUsuarios}}" method="get"></form>
-<div id="contenido">
+<div id="contenedor">
     <div id="tarjeta1">
         {{#each kolab}}
         <div id="Nombre">
             <p>{{NombreKolab}}</p>
         </div>
+
         <div id="Mision">
             <label>Misión:</label>
             <p>{{Mision}}</p>
         </div>
+
         <div id="vision">
             <label>Visión:</label>
             <p>{{Vision}}</p>
         </div>
+
         <div id="BotonEditar">
             <a href="/Kolab/editar/{{idKolab}}"><button>Editar</button></a>
         </div>
+
         <div id="BotonAgregar">
             <a href="/proyecto/agregar/{{idKolab}}"><button>Agregar Proyecto</button></a>
         </div>
+
         {{/each}}
     </div>
+
     <div id="tarjeta2">
         <div id="objetivos">
             <label>Objetivos:</label>
