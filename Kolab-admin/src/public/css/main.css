@@ -1,7 +1,7 @@
 input{
     text-align: center; 
     font-style: italic; 
-    font-family: sans-serif;
+    font-family:'Source Sans Pro', sans-serif;
     border-radius: 20px;
 }
 
@@ -9,7 +9,7 @@ button{
     background-color: #0f7097;
     text-align: center; 
     font-style: italic; 
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     cursor: pointer;
     border-radius: 20px;
     color: white;
@@ -44,7 +44,7 @@ a{
 body{
     font-size: 20px;
     font-style: italic; 
-    font-family: sans-serif;
+    font-family:'Source Sans Pro', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
