@@ -1,0 +1,69 @@
+#contenido{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    top: 0%;
+}
+
+#Kolab{
+    background-color: black;
+    position: absolute;
+    top: 40%;
+    left: 46%;
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+}
+
+#proyectos{
+    background-color: aqua;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    top: 5%;
+    left: 50.5%;
+    border-top-right-radius: 100%;
+}
+
+#Doers{
+    background-color: rgb(18, 26, 26);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    top: 5%;
+    left: 28.6%;
+    border-top-left-radius: 100%;
+}
+
+#Comunidad{
+    background-color: rgb(50, 52, 150);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    top: 50.5%;
+    left: 28.6%;
+    border-bottom-left-radius: 100%;
+}
+
+#Capitalizacion{
+    background-color: rgb(111, 57, 146);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    top: 50.5%;
+    left: 50.5%;
+    border-bottom-right-radius: 100%;
+}

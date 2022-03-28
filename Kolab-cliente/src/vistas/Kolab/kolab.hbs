@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/kolab.css">
+{{#each Kolab}}
+<form action="/Kolab/Lista/{{idKolab}}" method="get"></form>
+{{/each}}
+<div id="contenido">
+    <div id="proyectos">
+        <p>PROYECTOS</p>
+        <div id="datos"></div>
+    </div>
+    <div id="Doers">
+        <div>
+            <p>DOERS</p>
+        </div>
+    </div>
+    <div id="Comunidad">
+        <div>
+            <p>COMUNIDAD</p>
+        </div>
+    </div>
+    <div id="Capitalizacion">
+        <div>
+            <p>CAPITALIZACION</p>
+        </div>
+    </div>
+    <div id="Kolab">
+        {{#each Kolab}}
+        <p>{{NombreKolab}}</p>
+        {{/each}}
+    </div>
+</div>

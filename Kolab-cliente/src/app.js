@@ -26,7 +26,6 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 /// archivos compartidos
 
-
 //midlewars
 app.use(morgan('dev'));
 app.use(bodyparser.urlencoded({
@@ -59,5 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routers
+app.use(require('./rutas/index.rutas'))
+app.use('/Kolab',require('./rutas/kolab.rutas'))
 
 module.exports = app;

@@ -9,6 +9,10 @@
             <label>Nombre</label>
             <input type="text" name="NombreKolab" id="NombreKolab" required>
         </div>
+        <div id="Descripcion">
+            <label> Descripción:</label>
+            <textarea type="text" name="Descripcion" id="descripcion" required></textarea>
+        </div>
         <div id="Mision">
             <label>Mision:</label>
            <textarea name="mision" id="mision" maxlength="1500" required></textarea>
@@ -29,8 +33,8 @@
 </div>
 
 <div id="botonOculto">
-    {{#each traer}
-    <a href="/Kolab/lista/{{idKolab}}"><button type="button">Siguiente</button></a>
+    {{#each traer}}
+   <form action="/Kolab/siguiente/" method="post"><button type="submit">Siguiente</button></a></form>
     {{/each}}
 </div>
 

@@ -1,0 +1,50 @@
+<LINK REL=StyleSheet HREF="/css/usuario/login.css" TYPE="text/css" MEDIA=screen>
+
+<!-- Aquí comienza el parte Administrador -->
+<div id="contenido1">
+    <form action="/Login" method="POST">
+        <div id="fondo">
+            <img src="/img/fondo/fondo.jpg" alt="Logo">
+        </div>
+        <!-- Aquí comienza el primer formulario -->
+        <div id="contenedor">
+            <div id="login">
+                Login
+            </div>
+
+            <div id="datos">
+                {{#each datos}}
+                <input type="text" id="Nombre" name="username" placeholder="Usuario:" value="{{username}}">
+            </div>
+
+            <div id="contraseñas">
+                <input type="password" id="Contraseña" name="password" placeholder="Contraseña:">
+                {{/each}}
+            </div>
+            <div id="actualizacion">
+                {{#each datos}}
+                <a href="/actualizacion/Datos/{{idUsuarios}}">Cambiar contraseña</a>
+                {{/each}}
+            </div>
+
+            <div id="ojo">
+                <button id="visto" type="button" onclick="boton.cambio()"><img src="/img/usuario/abierto.png"></button>
+                <button id="equis" type="button" onclick="boton.cambio2()"><img src="/img/usuario/cerrado.png"></button>
+            </div>
+
+            <div id="ingresar">
+                <button type="submit">Ingresar</button>
+            </div>
+
+            <div id="sesion">
+                <a href="/Registro"><button type="button">Registro</button></a>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<!-- Aquí termina el parte Administrador -->
+
+<script src="/js/botones.js"></script>
+

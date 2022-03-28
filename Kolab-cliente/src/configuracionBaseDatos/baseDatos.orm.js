@@ -17,7 +17,7 @@ mysql.createConnection({
 const usuarioModelo = require('../modelos/usuario.modelos')
 const proyectoModelo = require('../modelos/proyectos.modelos')
 const Kolabmodelo = require('../modelos/kolab.modelo')
-const doresModelos = require('../modelos/doers.modelos')
+const doersModelos = require('../modelos/doers.modelos')
 const detalleProyectoModelo = require('../modelos/detalleProyecto.modelo')
 const detalleKolabModelo = require('../modelos/detalleKolab.modelo')
 const detalleComunidadModelo = require('../modelos/detalleComunidad.modelos')
@@ -25,7 +25,8 @@ const cominidadModelo = require('../modelos/comunidad.modelo')
 const clienteModelo = require('../modelos/clientes.modelos')
 const capitalizacionModelo = require('../modelos/capitalizacion.modelo')
 const rolModelo = require('../modelos/rol.modelo')
-const detalleRolmodelo = require('../modelos/detalle Rol.modelo');
+const detalleRolmodelo = require('../modelos/detalleRol.modelo');
+const contadorModelo = require('../modelos/contador.modelo')
 
 
 const sequelize = new Sequelize(
@@ -60,7 +61,7 @@ sequelize.sync({ force: false })
 const usuario = usuarioModelo(sequelize, Sequelize)
 const proyecto = proyectoModelo(sequelize, Sequelize)
 const kolab = Kolabmodelo(sequelize, Sequelize)
-const dores = doresModelos(sequelize, Sequelize)
+const doers = doersModelos(sequelize, Sequelize)
 const detalleProyecto = detalleProyectoModelo(sequelize, Sequelize)
 const detalleKolab = detalleKolabModelo(sequelize, Sequelize)
 const detalleComunidad = detalleComunidadModelo(sequelize, Sequelize)
@@ -69,16 +70,20 @@ const clientes = clienteModelo(sequelize, Sequelize)
 const capitalizacion = capitalizacionModelo(sequelize, Sequelize)  
 const rol = rolModelo(sequelize, Sequelize)
 const detalleRol = detalleRolmodelo(sequelize, Sequelize)
+const contador = contadorModelo(sequelize, Sequelize)
 
 //Relaciones 
 usuario.hasMany(kolab)
 kolab.belongsTo(usuario)
 
-kolab.hasMany(dores)
-dores.belongsTo(kolab)
+kolab.hasMany(doers)
+doers.belongsTo(kolab)
 
-proyecto.hasMany(dores)
-dores.belongsTo(proyecto)
+proyecto.hasMany(doers)
+doers.belongsTo(proyecto)
+
+usuario.hasMany(doers)
+doers.belongsTo(usuario)
 
 kolab.hasMany(proyecto)
 proyecto.belongsTo(kolab)
@@ -111,12 +116,14 @@ module.exports = {
   usuario,
   proyecto,
   kolab,
-  dores,
+  doers,
   detalleProyecto,
   detalleKolab,
+  comunidad,
   detalleComunidad,
   clientes,
   capitalizacion, 
   rol,
-  detalleRol
+  detalleRol,
+  contador
 }

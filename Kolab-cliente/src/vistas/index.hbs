@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="">
+<form action="/" method="get"></form>
+<div id="contenido">
+    {{#each Kolab}}
+    <div id="Proyecto">
+        <label>{{NombreKolab}}</label>
+    </div>
+    <div id="Descripcion">
+        <p>{{Descripcion}}</p>
+    </div>
+    <div id="Mision">
+        <p>{{Mision}}</p>
+    </div>
+    <div id="Vision">
+        <p>{{Vision}}</p>
+    </div>
+    <div id="siguiente">
+        <a href="/Kolab/Lista/{{idKolab}}"><button>Siguiente</button></a>
+    </div>
+    {{/each}}
+    {{#each Objetivos}}
+    <div id="objetivos">
+        <ul>
+            <li>{{objetivos}}</li>
+        </ul>
+    </div>
+    {{/each}}
+</div>

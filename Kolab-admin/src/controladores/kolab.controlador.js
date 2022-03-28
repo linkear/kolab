@@ -9,11 +9,27 @@ kolabcontrolador.mostrar = async(req, res) =>{
     res.render('kolab/kolabAgregar', {traer});
 }
 
+kolabcontrolador.siguiente = async(req, res) =>{
+    const id = req.user.idUsuarios
+    const listaKolab = await sql.query('select * from listaKolab')
+    if(listaKolab.length === 0){
+        const lista = listaKolab[0]
+        if(lista === undefined){
+            await sql.query('CREATE VIEW listaKolab AS SELECT p.*, d.idDoers,d.Cedula,d.NombreDoers,d.Edad,d.Telefono,d.DescripcionDoers, c.* FROM proyectos p JOIN doers d ON d.ProyectoIdProyecto = p.idProyecto JOIN comunidades c ON c.ProyectoIdProyecto = p.idProyecto WHERE p.KolabIdKolab = ?',[id])
+            console.log('guardado')
+        }
+    }else{
+        console.log('ya existe')
+    }
+    es.redirect('/Kolab/lista/' + id)
+}
+
 kolabcontrolador.mandar = async (req, res) =>{
     const ids = req.user.idUsuarios
-    const {NombreKolab, mision, vision, objetivos} = req.body
+    const {NombreKolab, Descripcion, mision, vision, objetivos} = req.body
     const nuevoEnvio={
         NombreKolab,
+        Descripcion,
         Mision: mision,
         Vision: vision,
         usuarioIdUsuarios: ids
@@ -44,9 +60,10 @@ kolabcontrolador.mostrarEdicion = async(req, res) =>{
 kolabcontrolador.actualizar = async(req, res) =>{
     const ids = req.params.id
     const id = req.user.idUsuarios
-    const {NombreKolab, mision, vision, objetivos} = req.body
+    const {NombreKolab, Descripcion, mision, vision, objetivos} = req.body
     const nuevoEnvio={
         NombreKolab,
+        Descripcion,
         Mision: mision,
         Vision: vision
     }
