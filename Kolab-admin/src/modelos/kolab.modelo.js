@@ -6,6 +6,7 @@ const Kolab = (sequelize, type) =>{
             autoIncrement: true
         },
         NombreKolab: type.STRING,
+        Descripcion: type.STRING(3000),
         Mision: type.STRING(1500),
         Vision: type.STRING(1500),
         creacionKolab:{

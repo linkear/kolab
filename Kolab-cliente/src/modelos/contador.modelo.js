@@ -1,21 +1,17 @@
-const doers = (sequelize, type) =>{
-    return sequelize.define('Doers', {
-        idDoers: {
+const contador = (sequileze, type) =>{
+    return sequileze.define('contadors',{
+        idContador: {
             type: type.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
-        Cedula: type.STRING,
-        NombreDoers: type.STRING,
-        Edad: type.INTEGER,
-        Telefono: type.STRING,
-        DescripcionDoers: type.STRING(1500),
-        creacionDoers:{
+        contador: type.STRING,
+        creacionContador:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
             allowNull: false
         },
-        actualizacionDoers:{
+        actualizacionContador:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP '),
             allowNull: false
@@ -25,4 +21,4 @@ const doers = (sequelize, type) =>{
     })
 }
 
-module.exports = doers
+module.exports = contador
