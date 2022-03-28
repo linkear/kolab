@@ -1,38 +1,46 @@
 <link rel="stylesheet" href="/css/kolab/kolab.css">
-    <div id="fondo"></div>
+<div id="fondo"></div>
+
 <div id="contenedor">
     <div id="Titulo">
         <label>Agregar Comunidad</label>
     </div>
+
     <form action="/Kolab/agregar/" method="post">
         <div id="Nombres">
             <label>Nombre</label>
             <input type="text" name="NombreKolab" id="NombreKolab" required>
         </div>
+
         <div id="Mision">
             <label>Mision:</label>
-           <textarea name="mision" id="mision" maxlength="1500" required></textarea>
+            <textarea name="mision" id="mision" maxlength="1500" required></textarea>
         </div>
+
         <div id="Vision">
             <label>Vision:</label>
-           <textarea name="vision" id="vision" maxlength="1500" required></textarea>
+            <textarea name="vision" id="vision" maxlength="1500" required></textarea>
         </div>
+
         <div id="objetivos">
             <label>Objetivos:</label>
             <input type="text" id="numeros" checked>
-            <button type="button" onclick="objetivos.crear()">-></button>
+            <button type="button" onclick="objetivos.crear()">Objetivos</button>
         </div>
+
         <div id="Guardar">
             <button type="submit">Guardar</button>
         </div>
     </form>
 </div>
 
+
 <div id="botonOculto">
-    {{#each traer}
-    <a href="/Kolab/lista/{{idKolab}}"><button type="button">Siguiente</button></a>
+    {{#each traer}}
+    <a href="/Kolab/lista/{{idKolab}}"><button type="button"><img src="/img/icons/forward.png"></button></a>
     {{/each}}
 </div>
+
 
 <script src="/js/objetivos.js"></script>
 <script src="/js/ocultarnavegacion.js"></script>

@@ -16,8 +16,8 @@
 
         <!-- Aquí comienza el primer formulario -->
         <div id="contenedor">
-            <div id="anim">
-
+            <div id="img">
+                <img src="/img/logo/kolab.png" alt="Logo">
             </div>
 
             <div id="login">
@@ -36,13 +36,13 @@
 
             <div id="actualizacion">
                 {{#each datos}}
-                <a href="/actualizacion/Datos/{{idUsuarios}}">Cambiar contraseña</a>
+                <a href="/actualizacion/Datos/{{idUsuarios}}"><button type="button">Cambiar contraseña</button></a>
                 {{/each}}
             </div>
 
             <div id="ojo">
-                <button id="visto" type="button" onclick="boton.cambio()"><img src="/img/usuario/abierto.png"></button>
-                <button id="equis" type="button" onclick="boton.cambio2()"><img src="/img/usuario/cerrado.png"></button>
+                <button id="visto" type="button" onclick="boton.cambio()"><img src="/img/icons/abierto.png"></button>
+                <button id="equis" type="button" onclick="boton.cambio2()"><img src="/img/icons/cerrado.png"></button>
             </div>
 
             <div id="ingresar">
@@ -82,8 +82,9 @@
                 {{/each}}
             </div>
 
-            <div>
-                <button type="submit" id="boton">Ingresar</button>
+            <div id="ingresar">
+                <button type="submit" >Ingresar</button>
+
             </div>
 
             <div id="sesion">

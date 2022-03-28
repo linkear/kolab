@@ -1,29 +1,44 @@
-<LINK REL=StyleSheet HREF="/css/login/registro.css" TYPE="text/css" MEDIA=screen>
+<LINK REL=StyleSheet HREF="/css/usuario/registro.css" TYPE="text/css" MEDIA=screen>
 <form action="/Registro" method="POST">
-  <div id="imagen">
-    <img src="/img/fondo.png">
-  </div>
-  <div id="contador">
-    {{#each contador}}
-    <input type="text" name="contador" id="contar" value="{{'max(contador)'}}" checked>
-    {{/each}}
-    <input type="text" name="numeroUsuario" id="numeroUsuario" value="" checked>
-    <input type="text" name="rolNumero" id="rolNumero" value="" checked>
-  </div>
-  <div id="contenedor">
-    <div id="nombres">
-      <p id="usuario">Registra tu Usuario y Contraseña</p>
+    <div id="fondo">
+        <img src="/img/fondo/fondo.jpg" alt="Logo">
     </div>
-    <div id="datos">
-      <input type="text" id="Nombre" name="username" placeholder="Usuario:">
+
+    <div id="contador">
+        {{#each contador}}
+        <input type="text" name="contador" id="contar" value="{{'max(contador)'}}" checked>
+        {{/each}}
+        <input type="text" name="numeroUsuario" id="numeroUsuario" value="" checked>
+        <input type="text" name="rolNumero" id="rolNumero" value="" checked>
     </div>
-    <div id="contraseñas">
-      <input type="password" id="Contraseña" name="password" placeholder="Contraseña:">
+
+    <div id="contenedor">
+        <div id="img">
+            <img src="/img/logo/kolab.png" alt="Logo">
+        </div>
+
+        <div id="registro">
+            <p id="usuario">Registro</p>
+        </div>
+
+        <div id="datos">
+            <input type="text" id="Nombre" name="username" placeholder="Usuario:">
+        </div>
+
+        <div id="contraseñas">
+            <input type="password" id="Contraseña" name="password" placeholder="Contraseña:">
+        </div>
+
+        <div id="ojo">
+            <button id="visto" type="button" onclick="boton.cambio()"><img src="/img/icons/abierto.png"></button>
+            <button id="equis" type="button" onclick="boton.cambio2()"><img src="/img/icons/cerrado.png"></button>
+        </div>
+
+        <div id="boton">
+            <button type="submit">Guardar</button>
+        </div>
     </div>
-    <div id="boton">
-      <button type="submit">Guardar</button>
-    </div>
-  </div>
 </form>
 
 <script src="/js/contador.js"></script>
+<script src="/js/botones.js"></script>

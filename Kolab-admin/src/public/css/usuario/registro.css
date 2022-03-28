@@ -35,7 +35,7 @@
     height: 100%;
     max-width: 50%;
     max-height: 100%;
-    left: 0%;
+    left: 50%;
     top: 0%;
 }
 
@@ -47,8 +47,8 @@
     background-position: center center;
 }
 
-/*Letras Login y contraseña*/
-#login{
+/*Letras Login*/
+#registro{
     font-size: 40px;
     text-align: center;
     width: 100%;
@@ -57,7 +57,7 @@
     max-height: 10%;
     position: absolute;
     top: 10%;
-    left: 60%;
+    left: 10%;
 }
 
 /*Input*/
@@ -70,12 +70,12 @@
     max-height: 5%;
     position: absolute;
     top: 30%;
-    left: 58%;
+    left: 8%;
 }
 
 #contraseñas{
-    top: 45%;
-    left: 60%;
+    top: 50%;
+    left: 10%;
 }
 
 #Nombre,
@@ -92,38 +92,15 @@
     border-bottom: 6px solid  #6ec3ee;
 }
 
-/*Botones*/
-#ingresar,
-#sesion,
-#actualizacion{
-    text-align: center;
+/*Boton Inicio*/
+#boton{
     position: absolute;
-    top: 60%;
-    left: 60%;
+    top: 70%;
+    left: 10%;
     width: 12%;
 }
 
-#sesion a,
-#actualizacion a{
-    text-decoration: none;
-}
-
-#sesion,
-#ingresar {
-    top: 75%;
-}
-
-#ingresar {
-    left: 78%;
-}
-
-#actualizacion{
-    width: 30%;
-}
-
-#ingresar button,
-#sesion button,
-#actualizacion button{
+#boton button{
     width: 100%;
     font-size: 20px;
 }
@@ -135,8 +112,8 @@
     height: 100%;
     max-width: 37.5px;
     max-height: 37.5px;
-    left: 86%;
-    top: 45%;
+    left: 36%;
+    top: 50%;
 }
 
 #visto,
