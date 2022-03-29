@@ -4,22 +4,41 @@
 {{/each}}
 <div id="contenido">
     <div id="proyectos">
-        <p>PROYECTOS</p>
-        <div id="datos"></div>
+        <div>
+            <p>PROYECTOS</p>
+            <div class="row">
+                {{#each proyectos}}
+                <div id="nombreProyecto">
+                    {{NombreProyecto}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
     </div>
     <div id="Doers">
         <div>
             <p>DOERS</p>
+            <div class="row">
+                {{#each doers}}
+                <div id="doers">{{NombreDoers}}</div>
+                {{/each}}
+            </div>
         </div>
     </div>
     <div id="Comunidad">
         <div>
             <p>COMUNIDAD</p>
+            <div class="row">
+                {{#each comunidad}}
+                <div id="comunidad">{{NombreComunidad}}</div>
+                {{/each}}
+            </div>
         </div>
     </div>
     <div id="Capitalizacion">
         <div>
             <p>CAPITALIZACION</p>
+            <div id="capitalizacion"></div>
         </div>
     </div>
     <div id="Kolab">
