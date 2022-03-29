@@ -7,7 +7,7 @@ class obtenerNumero{
         this.rol.style.display = 'none'
     }
     aumento(){
-        if(this.numero.value === undefined){
+        if(this.numero.value === ''){
             this.numero.value = 1
         }else{
             this.numero.value = parseInt(this.numero.value) + 1 
