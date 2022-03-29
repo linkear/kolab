@@ -1,28 +1,43 @@
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="/css/index.css" />
+
+<div id="fondo">
+    <!--<img src="/img/fondo/fondo.jpg">-->
+</div>
+
 <form action="/" method="get"></form>
 <div id="contenido">
-    {{#each Kolab}}
-    <div id="Proyecto">
-        <label>{{NombreKolab}}</label>
+    <div class="row">
+        {{#each Kolab}}
+        <div id="tarjeta">
+
+            <div id="Proyecto">
+                <label>{{NombreKolab}}</label>
+            </div>
+
+            <div id="Descripcion">
+                <p>{{Descripcion}}</p>
+            </div>
+
+            <div id="Mision">
+                <p>{{Mision}}</p>
+            </div>
+
+            <div id="Vision">
+                <p>{{Vision}}</p>
+            </div>
+
+            <div id="siguiente">
+                <a href="/Kolab/Lista/{{idKolab}}"><button>Siguiente</button></a>
+            </div>
+            {{/each}}
+
+            {{#each Objetivos}}
+            <div id="objetivos">
+                <ul>
+                    <li>{{objetivos}}</li>
+                </ul>
+            </div>
+            {{/each}}
+        </div>
     </div>
-    <div id="Descripcion">
-        <p>{{Descripcion}}</p>
-    </div>
-    <div id="Mision">
-        <p>{{Mision}}</p>
-    </div>
-    <div id="Vision">
-        <p>{{Vision}}</p>
-    </div>
-    <div id="siguiente">
-        <a href="/Kolab/Lista/{{idKolab}}"><button>Siguiente</button></a>
-    </div>
-    {{/each}}
-    {{#each Objetivos}}
-    <div id="objetivos">
-        <ul>
-            <li>{{objetivos}}</li>
-        </ul>
-    </div>
-    {{/each}}
 </div>

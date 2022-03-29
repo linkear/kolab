@@ -1,4 +1,4 @@
-/**
+/*
  * Reading Environment Variables
  */
  const dotenv = require('dotenv');

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/kolab/kolab.css">
+<link rel="stylesheet" href="/css/kolab/kolabAgregar.css">
 <div id="fondo"></div>
 
 <div id="contenedor">
@@ -18,18 +18,21 @@
         </div>
 
         <div id="Mision">
-            <label>Mision:</label>
+            <label>Misión:</label>
             <textarea name="mision" id="mision" maxlength="1500" required></textarea>
         </div>
 
         <div id="Vision">
-            <label>Vision:</label>
+            <label>Visión:</label>
             <textarea name="vision" id="vision" maxlength="1500" required></textarea>
         </div>
 
         <div id="objetivos">
             <label>Objetivos:</label>
             <input type="text" id="numeros" checked>
+        </div>
+        
+        <div id="boton">
             <button type="button" onclick="objetivos.crear()">Objetivos</button>
         </div>
 
@@ -37,12 +40,12 @@
             <button type="submit">Guardar</button>
         </div>
     </form>
-</div>
 
-<div id="botonOculto">
-    {{#each traer}}
-   <form action="/Kolab/siguiente/" method="post"><button type="submit">Siguiente</button></a></form>
-    {{/each}}
+    <div id="botonOculto">
+        {{#each traer}}
+    <form action="/Kolab/siguiente/" method="post"><button type="submit">Siguiente</button></a></form>
+        {{/each}}
+    </div>
 </div>
 
 <script src="/js/objetivos.js"></script>
