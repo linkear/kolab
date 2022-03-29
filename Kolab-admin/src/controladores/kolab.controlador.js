@@ -10,7 +10,8 @@ kolabcontrolador.mostrar = async(req, res) =>{
 }
 
 kolabcontrolador.siguiente = async(req, res) =>{
-    es.redirect('/Kolab/lista/' + id)
+    const id  = req.user.idUsuarios
+    res.redirect('/Kolab/lista/' + id)
 }
 
 kolabcontrolador.mandar = async (req, res) =>{

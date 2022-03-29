@@ -31,7 +31,7 @@
             <label>Objetivos:</label>
             <input type="text" id="numeros" checked>
         </div>
-        
+
         <div id="boton">
             <button type="button" onclick="objetivos.crear()">Objetivos</button>
         </div>
@@ -40,12 +40,11 @@
             <button type="submit">Guardar</button>
         </div>
     </form>
-
+    {{#each traer}}
     <div id="botonOculto">
-        {{#each traer}}
-    <form action="/Kolab/siguiente/" method="post"><button type="submit">Siguiente</button></a></form>
-        {{/each}}
+        <form action="/Kolab/siguiente/" method="post"><button type="submit">Siguiente</button></a></form>
     </div>
+    {{/each}}
 </div>
 
 <script src="/js/objetivos.js"></script>
