@@ -9,7 +9,7 @@ authCtrl.mostrarRegistro = async (req, res) => {
 };
 
 authCtrl.registro = passport.authenticate('local.signup', {
-    successRedirect: '/CerrarSecion',
+    successRedirect: '/CerrarSesion', 
     failureRedirect: '/registro',
     failureFlash: true
 });

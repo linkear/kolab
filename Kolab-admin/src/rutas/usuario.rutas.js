@@ -6,4 +6,4 @@ const { mostrar } = require('../controladores/kolab.controlador');
 
 router.get('/Kolab/agregar/', isLoggedIn, mostrar);
 
-module.exports = router; 
+module.exports = router;  
