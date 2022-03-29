@@ -5,7 +5,7 @@ class objetivo{
     }
     crear(){
         for(let i = 0; i<parseInt(this.numero.value); i++){
-        let input = document.createElement('input')
+        let input = document.createElement('textarea')
         input.setAttribute('type', 'text')
         input.name = 'objetivos'
         this.contenedor.appendChild(input)
