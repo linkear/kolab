@@ -56,7 +56,6 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 //public
 
-
 //routers
 app.use(require('./rutas/index.rutas'))
 app.use('/Kolab',require('./rutas/kolab.rutas'))

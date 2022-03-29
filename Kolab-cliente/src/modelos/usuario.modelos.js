@@ -3,7 +3,7 @@ const usuarios =(sequelize, type) =>{
         idUsuarios: {
             type: type.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: true
         },
         username: type.STRING(99),
         password: type.STRING,

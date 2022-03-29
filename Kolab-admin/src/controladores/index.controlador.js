@@ -14,6 +14,7 @@ indexControlador.Verificar = async(req, res)=>{
         if(roles === undefined){
             await sql.query('insert into rols(idRol, nombreRol) values (1, "administrador")')
             await sql.query('insert into rols(idRol, nombreRol) values (2, "doers")')
+            await sql.query('CREATE VIEW listaKolab AS SELECT p.*, d.idDoers,d.Cedula,d.NombreDoers,d.Edad,d.Telefono,d.DescripcionDoers, c.* FROM proyectos p JOIN doers d ON d.ProyectoIdProyecto = p.idProyecto JOIN comunidades c ON c.ProyectoIdProyecto = p.idProyecto ')
             console.log('guardado')
         }else{
             console.log('ya existe')

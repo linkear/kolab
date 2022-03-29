@@ -10,17 +10,6 @@ kolabcontrolador.mostrar = async(req, res) =>{
 }
 
 kolabcontrolador.siguiente = async(req, res) =>{
-    const id = req.user.idUsuarios
-    const listaKolab = await sql.query('select * from listaKolab')
-    if(listaKolab.length === 0){
-        const lista = listaKolab[0]
-        if(lista === undefined){
-            await sql.query('CREATE VIEW listaKolab AS SELECT p.*, d.idDoers,d.Cedula,d.NombreDoers,d.Edad,d.Telefono,d.DescripcionDoers, c.* FROM proyectos p JOIN doers d ON d.ProyectoIdProyecto = p.idProyecto JOIN comunidades c ON c.ProyectoIdProyecto = p.idProyecto WHERE p.KolabIdKolab = ?',[id])
-            console.log('guardado')
-        }
-    }else{
-        console.log('ya existe')
-    }
     es.redirect('/Kolab/lista/' + id)
 }
 
