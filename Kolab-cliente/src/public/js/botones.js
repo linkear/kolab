@@ -15,7 +15,7 @@ class botones{
             this.password.type = "text"
             this.visto.style.display = "none"
             this.equis.style.display = "block"
-        } 
+        }
     }
 
     cambio2 (){

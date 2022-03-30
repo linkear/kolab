@@ -6,41 +6,50 @@
 
 <form action="/" method="get"></form>
 <div id="contenido">
-    <div class="row">
-        {{#each Kolab}}
-        <div id="tarjeta">
-            <div id="Proyecto">
-                <label>{{NombreKolab}}</label>
-            </div>
-
-            <div id="Descripcion">
-                <p>{{Descripcion}}</p>
-            </div>
-
-            <div id="Mision">
-                <p>{{Mision}}</p>
-            </div>
-
-            <div id="Vision">
-                <p>{{Vision}}</p>
-            </div>
-
-            <div id="img">
-                <img src="/img/logo/kolab.png">
-            </div>
-
-            <div id="siguiente">
-                <a href="/Kolab/Lista/{{idKolab}}"><button>Siguiente</button></a>
-            </div>
-            {{/each}}
-
-            {{#each Objetivos}}
-            <div id="objetivos">
-                <ul>
-                    <li>{{objetivos}}</li>
-                </ul>
-            </div>
-            {{/each}}
+    {{#each Kolab}}
+    <div id="tarjeta">
+        <div id="Proyecto">
+            <label>{{NombreKolab}}</label>
         </div>
+
+        <div id="Descripcion">
+            <label>Descripción:</label>
+            <p>{{Descripcion}}</p>
+        </div>
+
+        <div id="Mision">
+            <label>Misión:</label>
+            <p>{{Mision}}</p>
+        </div>
+
+        <div id="Vision">
+            <label>Visión:</label>
+            <p>{{Vision}}</p>
+        </div>
+        {{/each}}
+
+        <div id="Objetivo">
+            <label>Objetivos:</label>
+        </div>
+
+
+        <div id="objetivos">
+        {{#each Objetivos}}
+            <ul>
+                <li>{{objetivos}}</li>
+            </ul>
+        {{/each}}
+        </div>
+    </div>
+
+    {{#each Kolab}}
+    <div id="siguiente">
+        <a href="/Kolab/Lista/{{idKolab}}"><button>Siguiente</button></a>
+    </div>
+    {{/each}}
+
+
+    <div id="img">
+        <img src="/img/logo/kolab numeral.png">
     </div>
 </div>

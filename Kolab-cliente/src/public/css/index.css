@@ -1,15 +1,15 @@
 /*Fondo*/
-#fondo{
+#fondo {
     background-color: #2479A4;
     position: absolute;
     width: 100%;
-    height: 150%;
+    height: 180%;
     max-width: 100%;
-    max-height: 140%;
+    max-height: 180%;
     top: 0%;
 }
 
-#fondo img{
+#fondo img {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -17,32 +17,33 @@
 }
 
 /*Contenedor*/
-#contenido{
+#contenido {
     background-color: white;
     position: absolute;
     width: 100%;
-    height: 130%;
+    height: 160%;
     max-width: 90%;
-    max-height: 120%;
+    max-height: 150%;
     left: 5%;
     top: 10%;
     bottom: 5%;
 }
 
 /*Tarjetas*/
-#tarjeta{
-    background-color: #6ec3ee3b;
+#tarjeta {
+    background-color: #6dc5f13b;
+    position: absolute;
     width: 100%;
     height: 100%;
     max-width: 60%;
-    max-height: 20%;
-    margin-left: 5%;
-    margin-top: 3%;
+    max-height: 90%;
+    left: 5%;
+    top: 5%;
     text-align: center;
 }
 
 /*Logo*/
-#img{
+#img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -52,7 +53,7 @@
     top: 30%;
 }
 
-#img img{
+#img img {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -60,29 +61,99 @@
     background-position: center center;
 }
 
-/*Input*/
-#confirmacion{
-    background-color: white;
+/*label*/
+#Proyecto label,
+#Descripcion label,
+#Mision label,
+#Vision label,
+#Objetivo label {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+    position: absolute;
     width: 100%;
     height: 100%;
-    max-width: 70%;
+    max-width: 20%;
     max-height: 5%;
+    left: 40%;
+    top: 2%;
+}
+
+#Descripcion label,
+#Mision label,
+#Vision label,
+#Objetivo label {
+    text-align: justify;
+    font-size: 25px;
+    max-height: 4%;
+    left: 5%;
+    top: 5%;
+}
+
+#Mision label {
+    top: 45.5%;
+}
+
+#Vision label {
+    top: 67%;
+}
+
+#Objetivo label {
+    top: 81%;
+}
+
+/*p*/
+#Descripcion p,
+#Mision p,
+#Vision p {
+    text-align: justify;
     position: absolute;
-    top: 62.5%;
-    left: 15%;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    max-width: 90%;
+    max-height: 30%;
+    left: 5%;
+    top: 8.5%;
+}
+
+#Mision p {
+    top: 48.5%;
+}
+
+#Vision p {
+    top: 70%;
+}
+
+/*Li*/
+#objetivos {
+    text-align: justify;
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    max-width: 90%;
+    max-height: 30%;
+    left: 5%;
+    top: 86%;
 }
 
 /*Boton*/
-#siguiente{
+#siguiente {
     position: absolute;
     width: 100%;
     height: 100%;
     max-width: 25%;
     max-height: 4%;
     right: 5%;
-    bottom: 12.5%;}
+    bottom: 12.5%;
+}
 
-#siguiente button{
+#siguiente button {
     width: 100%;
     font-size: 20px;
+}
+
+#siguiente a {
+    text-decoration: none;
 }
