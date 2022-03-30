@@ -1,59 +1,75 @@
-<link rel="stylesheet" href="">
-<div id="contenido">
-    {{#each proyectos}}
-    <form action="/proyecto/Editar/{{idProyecto}}" method="post">
-        {{/each}}
+<link rel="stylesheet" href="/css/proyectos/proyectosAgregar.css">
+<div id="fondo"></div>
+
+{{#each proyectos}}
+<form action="/proyecto/Editar/{{idProyecto}}" method="post">
+    {{/each}}
+    <div id="contenido">
+        <div id="Titulo">
+            <label>Editar Proyecto</label>
+        </div>
+
         {{#each proyectos}}
         <div id="NombreProyecto">
-            <label>Nombre del Proyecto:</label>
+            <label>Nombre:</label>
             <input type="text" name="NombreProyecto" id="nombre" value="{{NombreProyecto}}" checked>
         </div>
+
         <div id="Descripcion">
-            <label>Descripcion del Proyecto:</label>
+            <label>Descripción:</label>
             <textarea name="DecripcionProyecto" id="descripcion" maxlength="1500"
                 aria-checked="true">{{DecripcionProyecto}}</textarea>
         </div>
+
         <div id="Fecha">
-            <label>Fecha del Proyecto:</label>
+            <label>Fecha de Creación:</label>
             <input type="text" name="fechaProyecto" id="fecha" value="{{fechaProyecto}}" checked>
         </div>
+
         <div id="Vision">
-            <label>Vision:</label>
-            <input type="text" name="Vision" id="vision" value="{{visionProyecto}}" checked>
+            <label>Visión:</label>
+            <textarea type="text" name="Vision" id="vision" checked>{{visionProyecto}}</textarea>
         </div>
+
         <div id="Mision">
-            <label>Mision:</label>
-            <input type="text" name="Mision" id="mision" value="{{MisionProyecto}}" checked>
+            <label>Misión:</label>
+            <textarea type="text" name="Mision" id="mision" checked>{{MisionProyecto}}</textarea>
         </div>
         {{/each}}
-        <div id="objetivos">
+
+        <div id="objetivosEliminar">
             <label>Objetivos:</label>
+<!--        </div>
+        
+        <div id="eliminar">-->
             {{#each detalle}}
-            <input type="text" id="objetivos" name="objetivos" value="{{objetivos}}" checked>
+            <textarea type="text" id="quitar" name="objetivos" checked>{{objetivos}}</textarea>
             <div id="Eliminar">
                 <a href="/proyecto/EliminarObjetivo/{{idDetalleProyecto}}"><button>Eliminar</button></a>
             </div>
             {{/each}}
         </div>
+
         {{#each proyectos}}
         <form action="/proyecto/Aumentar/{{idProyecto}}" method="post">
             {{/each}}
             <div id="objetivos">
-                <label>Objetivos:</label>
+                <label>Nuevos Objetivos:</label>
                 <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
             </div>
 
-            <div id="listaObjetivos"></div>
+            <div id="listaObjetivos">
+            </div>
 
             <div id="boton">
-                <button type="button" onclick="objetivos.crear()">Objetivos</button>
+                <button type="button" onclick="objetivos.crear()">Crear Objetivos</button>
             </div>
         </form>
+
         <div id="Guardar">
             <button type="submit">Actualizar</button>
         </div>
-    </form>
-</div>
-
+    </div>
+</form>
 
 <script src="/js/objetivos.js"></script>

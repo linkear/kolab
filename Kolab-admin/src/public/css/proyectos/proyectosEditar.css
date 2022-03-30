@@ -46,9 +46,10 @@
 #Fecha,
 #Mision,
 #Vision,
-#objetivos{
-/*    border: transparent;
-*/    width: 100%;
+#objetivos,
+#objetivosEliminar{
+    border: transparent;
+    width: 100%;
     height: 100%;
     max-width: 50%;
     max-height: 5%;
@@ -62,7 +63,8 @@
 #fecha,
 #mision,
 #vision,
-#objetivo{
+#numeros,
+#quitar{
 /*    border: transparent;
 */    width: 100%;
     font-size: 20px;
@@ -76,31 +78,39 @@
 #fecha:focus,
 #mision:focus,
 #vision:focus,
-#objetivos:focus{
+#objetivos:focus,
+#quitar:focus{
     border-bottom: 6px solid #6ec3ee;
 }
 
-#Descripcion{
+#NombreProyecto{
     top: 22%;
 }
 
-#Fecha{
+#Descripcion{
     top: 29%;
 }
 
-#Mision{
+#Fecha {
     top: 43%;
 }
 
-#Vision{
+#Mision {
     top: 50%;
 }
 
-#objetivos{
+#Vision {
     top: 64%;
 }
 
-/*Inputs*/
+#objetivos {
+    top: 78%;
+}
+
+#objetivosEliminar {
+    top: 100%;
+}
+/*Inputs*
 #numeroProyecto input,
 #NombreProyecto input,
 #Fecha input,
@@ -110,10 +120,11 @@
     right: 10%;
 }
 
-/*Textarea*/
+/*Textarea*
 #Descripcion textarea,
 #Mision textarea,
-#Vision textarea {
+#Vision textarea,
+#quitar textarea{
     width: 60%;
     height: 230%;
     max-width: 80%;
@@ -124,7 +135,7 @@
 
 #extras{
 /*    border: transparent;
-*/    width: 65%;
+*    width: 65%;
     height: 230%;
     max-width: 80%;
     max-height: 240%;
@@ -142,7 +153,7 @@
 
 #extras {
 /*    border: transparent;
-*/    font-size: 20px;
+*    font-size: 20px;
     border-bottom: 6px solid #0f7097;
     transition: all .5s ease;
 }
@@ -151,7 +162,7 @@
     border-bottom: 6px solid #6ec3ee;
 }
 
-/*Botones*/
+/*Botones*
 #boton,
 #Guardar{
     text-align: center;
