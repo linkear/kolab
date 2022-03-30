@@ -1,27 +1,47 @@
-<link rel="stylesheet" href="">
-<form action="/comunidad/lista/{{user.idUsuarios}}" method="get"></form>
-<div id="contenido">
-    <div class="row">
+<link rel="stylesheet" href="/css/comunidad/comunidadDetalle.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Detalle Comunidad</label>
+    </div>
+    <form action="/comunidad/lista/{{user.idUsuarios}}" method="get"></form>
+    <div id="contenido">
+
         {{#each detalle}}
-        <div id="Tarjeta">
-            <div id="NombreComunidad">
-                <label>{{NombreComunidad}}</label>
-            </div>
-            <div id="Descripcion">
-                <p>{{DescripcionComunidad}}</p>
-            </div>
-            <div id="FechaComunidad">
-                <p>{{FechaComunidad}}</p>
-            </div>
+
+        <div id="NombreComunidad">
+            <label>Nombre de la Comunidad:</label>
+
+            <p>{{NombreComunidad}}</p>
         </div>
+        <div id="Descripcion">
+            <label>Descripción:</label>
+
+            <p>{{DescripcionComunidad}}</p>
+        </div>
+        <div id="FechaComunidad">
+            <label>Fecha Creación:</label>
+
+            <p>{{FechaComunidad}}</p>
+        </div>
+
         {{/each}}
         {{#each datosExtra}}
         <div id="participantes">
+            <label>Responsable:</label>
+
             <p>{{participantes}}</p>
         </div>
         <div id="telefono">
+            <label>Telefono del Responsable:</label>
+
             <p>{{telefonoParticipante}}</p>
         </div>
+        <div id="Editar">
+            <a href="/comunidad/editar/{{idComunidad}}"><button>Editar</button></a>
+        </div>
         {{/each}}
+
+
     </div>
 </div>

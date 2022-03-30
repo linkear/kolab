@@ -13,7 +13,7 @@ comunidadCtl.mostrar = async (req, res) => {
 }
 
 comunidadCtl.Mandar = async (req, res) => {
-    const ids = req.user.idUsuarios
+    const id = req.user.idUsuarios
     const { NombreComunidad, DescripcionComunidad, participantes, telefonoParticipante, proyecto, numero } = req.body
     const nuevoEnvio = {
         NombreComunidad,

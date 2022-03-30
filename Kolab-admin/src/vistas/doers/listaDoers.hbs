@@ -1,28 +1,37 @@
-<link rel="stylesheet" href="">
-<form action="/doers/listaCompleta/{{user.idUsuarios}}" method="get"></form>
-<div id="contenido">
-    <div class="row">
-         {{#each doers}}
+<link rel="stylesheet" href="/css/doers/doersListaCompleta.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Lista de Doers</label>
+    </div>
+    <form action="/doers/listaCompleta/{{user.idUsuarios}}" method="get"></form>
+
+    <div id="contenedor-tarjetas">
+        {{#each doers}}
         <div id="tarjeta">
-            <div id="Nombres">
-                <label>{{NombreDoers}}</label>
+            <div id="Nombre">
+                <label>Nombre: {{NombreDoers}}</label>
             </div>
             <div id="Edad">
-                <p>{{Edad}}</p>
+                <p>Edad: {{Edad}} Años</p>
             </div>
             <div id="Celular">
-                <p>{{Telefono}}</p>
+                <p>Teléfono: {{Telefono}}</p>
             </div>
-            <div id="detalle">
-                <a href="/doers/detalle/{{idDoers}}"><button>Detalle</button></a>
+            <div id="conetenedor-botones">
+                <div id="detalle">
+                    <a href="/doers/detalle/{{idDoers}}"><button>Detalle</button></a>
+                </div>
+                <div id="Eliminar">
+                    <a href="/doers/Eliminar/{{idDoers}}"><button>Eliminar</button></a>
+                </div>
             </div>
-            <div id="Eliminar"></div>
-             <a href="/doers/Eliminar/{{idDoers}}"><button>Eliminar</button></a>
         </div>
         {{/each}}
     </div>
-</div>
 
-<div id="agregar">
-    <a href="/doers/agregar/{{user.idUsuarios}}"><button>+</button></a>
+
+    <div id="agregar">
+        <a href="/doers/agregar/{{user.idUsuarios}}"><button>+</button></a>
+    </div>
 </div>

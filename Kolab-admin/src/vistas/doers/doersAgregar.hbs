@@ -1,46 +1,54 @@
-<link rel="stylesheet" href="style.css">
-<form action="/doers/agregar/{{user.idUsuarios}}" method="post">
-    <div id="contenido">
-        <div id="kolab">
-            {{#each kolab}}
-            <input type="text" name="Kolab" id="Kolab" value="{{'max(idKolab)'}}" readonly checked>
-            {{/each}}
-            {{#each proyecto}}
-            <input type="text" name="idProyecto" id="idProyecto" value="{{idProyecto}}" readonly checked>
-            {{/each}}
-            {{#each rol}}
-            <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
-            {{/each}}
-        </div>
-        <div id="Cedula">
-            <label>Cedula:</label>
-            <input type="text" name="Cedula" id="cedula" checked>
-        </div>
-
-        <div id="Nombre">
-            <label>Nombre-Apellido:</label>
-            <input type="text" name="NombreDoers" id="nombre" checked>
-        </div>
-
-        <div id="Edad">
-            <label>Edad:</label>
-            <input type="text" name="Edad" id="edad" checked>
-        </div>
-
-        <div id="Telefono">
-            <label>Celular:</label>
-            <input type="text" name="Telefono" id="telefono" checked>
-        </div>
-
-        <div id="DescripcionDoers">
-            <label>Descripción:</label>
-            <textarea name="DescripcionDoers" id="descripcion" maxlength="1500" aria-checked="true" checked></textarea>
-        </div>
-        
-        <div id="Guardar">
-            <button type="submit">Guardar</button>
-        </div>
+<link rel="stylesheet" href="/css/doers/doersAgregar.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Agregar Doer</label>
     </div>
-</form>
+    <form action="/doers/agregar/{{user.idUsuarios}}" method="post">
+        <div id="contenido">
+            
+    
+            <div id="kolab">
+                {{#each kolab}}
+                <input type="text" name="Kolab" id="Kolab" value="{{'max(idKolab)'}}" readonly checked>
+                {{/each}}
+                {{#each proyecto}}
+                <input type="text" name="idProyecto" id="idProyecto" value="{{idProyecto}}" readonly checked>
+                {{/each}}
+                {{#each rol}}
+                <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
+                {{/each}}
+            </div>
+            <div id="Cedula">
+                <label>Cedula:</label>
+                <input type="text" name="Cedula" id="cedula" checked>
+            </div>
+    
+            <div id="Nombre">
+                <label>Nombre-Apellido:</label>
+                <input type="text" name="NombreDoers" id="nombre" checked>
+            </div>
+    
+            <div id="Edad">
+                <label>Edad:</label>
+                <input type="text" name="Edad" id="edad" checked>
+            </div>
+    
+            <div id="Telefono">
+                <label>Celular:</label>
+                <input type="text" name="Telefono" id="telefono" checked>
+            </div>
+    
+            <div id="DescripcionDoers">
+                <label>Descripción:</label>
+                <textarea name="DescripcionDoers" id="descripcion" maxlength="1500" aria-checked="true" checked></textarea>
+            </div>
+            
+            <div id="Guardar">
+                <button type="submit">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 <script src="/js/ocultar.js"></script>
