@@ -1,24 +1,33 @@
-<link rel="stylesheet" href="">
-{{#each Traer}}
-<form action="/comunidad/editar/{{idComunidad}}" method="post">
-{{/each}}
-    <div id="contenido">
-        {{#each Traer}}
-        <div id="NombreComunidad">
-            <label>Nombre de la Comunidad:</label>
-            <input type="text" name="NombreComunidad" id="NombreComunidad" value="{{NombreComunidad}}" checked aria-checked="true">
-        </div>
-        <div id="Descripcion">
-            <label>Descripción:</label>
-            <input type="text" name="DescripcionComunidad" id="DescripcionComunidad" value="{{DescripcionComunidad}}" checked aria-checked="true">
-        </div>
-        <div id="">
-            <label> Responsable:</label>
-            <input type="text" name="participantes" id="participantes" value="{{participantes}}" checked aria-checked="true">
-        </div>
-        <div id="Guardar">
-            <button type="submit">Guardar</button>
-        </div>
-        {{/each}}
+<link rel="stylesheet" href="/css/comunidad/comunidadEditar.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Editar Comunidad</label>
     </div>
-</form>
+    {{#each Traer}}
+    <form action="/comunidad/editar/{{idComunidad}}" method="post">
+        {{/each}}
+        <div id="contenido">
+            {{#each Traer}}
+            <div id="NombreComunidad">
+                <label>Nombre de la Comunidad:</label>
+                <input type="text" name="NombreComunidad" id="nombreComunidad" value="{{NombreComunidad}}" checked
+                    aria-checked="true">
+            </div>
+            <div id="Descripcion">
+                <label>Descripción:</label>
+                <input type="text" name="DescripcionComunidad" id="DescripcionComunidad"
+                    value="{{DescripcionComunidad}}" checked aria-checked="true">
+            </div>
+            <div id="responsable">
+                <label> Responsable:</label>
+                <input type="text" name="participantes" id="participantes" value="{{participantes}}" checked
+                    aria-checked="true">
+            </div>
+            <div id="Guardar">
+                <button type="submit">Guardar</button>
+            </div>
+            {{/each}}
+        </div>
+    </form>
+</div>

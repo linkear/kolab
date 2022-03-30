@@ -1,0 +1,69 @@
+/*Fondo*/
+#fondo {
+    background-color: #2479A4;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+     max-height: 100%;
+    top: 0%;
+}
+
+#fondo img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Contenedor y su campos*/
+#contenedor {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 80%;
+    max-height: 80%;
+    left: 10%;
+    top: 10%;
+}
+
+/*titulo*/
+#Titulo {
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    height: 85%;
+    max-width: 60%;
+    max-height: 10%;
+    position: absolute;
+    top: 2.5%;
+    left: 20%;
+}
+
+#tarjeta{
+background: rgba(100, 111, 139, 0.445);
+border-radius: 5px;
+padding: 20px;
+}
+
+#contenedor-tarjetas{
+    display: grid;
+    grid-column: 5;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 20px;
+    position: absolute;
+    top: 100px;
+    margin: 0px 50px;
+}
+
+#conetenedor-botones{
+    display: flex;
+}
+
+#agregar{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
