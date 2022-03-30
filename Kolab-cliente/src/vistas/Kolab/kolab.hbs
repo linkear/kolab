@@ -9,13 +9,14 @@
 {{/each}}
 
 <div id="contenido">
+
     <div id="proyectos">
         <div>
             <p>MICROSERVICIOS</p>
             <div class="row">
                 {{#each proyectos}}
                 <div id="nombreProyecto">
-                    {{NombreProyecto}}
+                    <button>{{NombreProyecto}}</button>
                 </div>
                 {{/each}}
             </div>
@@ -27,7 +28,9 @@
             <p>DOERS</p>
             <div class="row">
                 {{#each doers}}
-                <div id="doers">{{NombreDoers}}</div>
+                <div id="doers">
+                    <button>{{NombreDoers}}</button>
+                </div>
                 {{/each}}
             </div>
         </div>
@@ -38,7 +41,9 @@
             <p>COMUNIDAD</p>
             <div class="row">
                 {{#each comunidad}}
-                <div id="comunidad">{{NombreComunidad}}</div>
+                <div id="comunidad">
+                    <button>{{NombreComunidad}}</button>
+                </div>
                 {{/each}}
             </div>
         </div>
@@ -56,4 +61,5 @@
         <p>{{NombreKolab}}</p>
         {{/each}}
     </div>
+
 </div>
