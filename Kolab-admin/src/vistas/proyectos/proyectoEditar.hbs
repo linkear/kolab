@@ -35,8 +35,25 @@
             </div>
             {{/each}}
         </div>
+        {{#each proyectos}}
+        <form action="/proyecto/Aumentar/{{idProyecto}}" method="post">
+            {{/each}}
+            <div id="objetivos">
+                <label>Objetivos:</label>
+                <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
+            </div>
+
+            <div id="listaObjetivos"></div>
+
+            <div id="boton">
+                <button type="button" onclick="objetivos.crear()">Objetivos</button>
+            </div>
+        </form>
         <div id="Guardar">
             <button type="submit">Actualizar</button>
         </div>
     </form>
 </div>
+
+
+<script src="/js/objetivos.js"></script>

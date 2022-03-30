@@ -35,6 +35,17 @@ proyectocontrolador.Mandar = async (req, res) => {
     }
 }
 
+proyectocontrolador.aumentar = async(req, res) => {
+    const ids = req.user.idUsuarios
+    const id = req.params.id
+    const {objetivos} = req.body
+    for (let i = 0; i < objetivos.length; i++) {
+        await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos[i], id, ids])
+    }
+    req.flash('success', 'Se Aumento Correctamente');
+    res.redirect('/proyecto/Editar/' + id);
+}
+
 proyectocontrolador.ListaTodo = async (req, res) => {
     const id = req.params.id
     const listaProyecto = await sql.query('SELECT * FROM proyectos WHERE KolabIdKolab = ?', [id])
