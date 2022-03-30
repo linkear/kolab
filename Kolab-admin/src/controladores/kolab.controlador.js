@@ -43,7 +43,7 @@ kolabcontrolador.Lista = async(req, res) =>{
 kolabcontrolador.mostrarEdicion = async(req, res) =>{
     const ids = req.params.id
     const kolab = await sql.query('SELECT * FROM kolabs WHERE usuarioIdUsuarios = ?',[ids])
-    const detalle = await sql.query('SELECT objetivos FROM detallekolabs WHERE KolabIdKolab = ?', [ids])
+    const detalle = await sql.query('SELECT objetivos FROM detallekolabs')
     res.render('Kolab/kolabEditar', {kolab, detalle})
 }
 
@@ -63,7 +63,7 @@ kolabcontrolador.actualizar = async(req, res) =>{
         actualizarEnvio.update(nuevoEnvio)
     })
     for(let i = 0; i< objetivos.length; i++){
-        await sql.query('UPDATE detallekolabs set objetivos = ?, KolabIdKolab = ? where idDetalleKolab = ?',[objetivos[i], id, ids])
+        await sql.query('UPDATE detallekolabs set objetivos = ? where idDetalleKolab = ?',[objetivos[i], (parseInt(ids)+i)])
     }
     req.flash('success', 'Exito al Actualizar')
     res.redirect('/Kolab/lista/' + ids);

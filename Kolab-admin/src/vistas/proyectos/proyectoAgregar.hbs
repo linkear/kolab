@@ -1,14 +1,15 @@
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="/css/proyecto/proyectoAgregar.css">
+<div id="fondo"></div>
 
-<div id="contenido">
-    <form action="/proyecto/Agregar/{{user.idUsuarios}}" method="post">
+<form action="/proyecto/Agregar/{{user.idUsuarios}}" method="post">
+    <div id="contenido">
         <div id="rol">
             {{#each rol}}
             <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
             {{/each}}
         </div>
 
-        <div id="numeroPoryecto">
+        <div id="numeroProyecto">
             <label> Proyecto N°</label>
             {{#each idProyecto}}
             <input type="text" name="text" id="numero" value="{{'max(idProyecto)'}}" readonly>
@@ -53,8 +54,9 @@
         <div id="Guardar">
             <button type="submit">Guardar</button>
         </div>
-    </form>
-</div>
+    </div>
+</form>
+
 
 <script src="/js/numero.js"></script>
 <script src="/js/objetivos.js"></script>
