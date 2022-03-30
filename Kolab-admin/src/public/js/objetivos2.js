@@ -18,4 +18,4 @@ class objetivo {
     }
 }
 
-let objetivos = new objetivo
+let objetivo1 = new objetivo

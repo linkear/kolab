@@ -1,7 +1,12 @@
-
+<link rel="stylesheet" href="/css/proyectos/proyectosAgregar.css">
+<div id="fondo"></div>
 
 <form action="/proyecto/Agregar/{{user.idUsuarios}}" method="post">
     <div id="contenido">
+        <div id="Titulo">
+            <label>Agregar Proyecto</label>
+        </div>
+
         <div id="rol">
             {{#each rol}}
             <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
@@ -16,27 +21,27 @@
         </div>
 
         <div id="NombreProyecto">
-            <label>Nombre del Proyecto:</label>
+            <label>Nombre:</label>
             <input type="text" name="NombreProyecto" id="nombre" checked>
         </div>
 
         <div id="Descripcion">
-            <label>Descripción del Proyecto:</label>
+            <label>Descripción:</label>
             <textarea name="DecripcionProyecto" id="descripcion" maxlength="1500" aria-checked="true"></textarea>
         </div>
         <div id="Fecha">
-            <label>Fecha de Creación del Proyecto:</label>
+            <label>Fecha de Creación:</label>
             <input type="date" name="fechaProyecto" id="fecha" checked>
-        </div>
-
-        <div id="Vision">
-            <label>Visión:</label>
-            <input type="text" name="Vision" id="vision" checked>
         </div>
 
         <div id="Mision">
             <label>Misión:</label>
-            <input type="text" name="Mision" id="mision" checked>
+            <textarea type="text" name="Mision" id="mision" checked></textarea>
+        </div>
+
+        <div id="Vision">
+            <label>Visión:</label>
+            <textarea type="text" name="Vision" id="vision" checked></textarea>
         </div>
 
         <div id="objetivos">
@@ -55,7 +60,6 @@
         </div>
     </div>
 </form>
-
 
 <script src="/js/numero.js"></script>
 <script src="/js/objetivos.js"></script>
