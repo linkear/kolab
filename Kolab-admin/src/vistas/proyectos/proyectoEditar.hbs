@@ -44,30 +44,30 @@
             <textarea type="text" id="quitar" name="objetivos" checked>{{objetivos}}</textarea>
             <div id="Eliminar">
                 <a href="/proyecto/EliminarObjetivo/{{idDetalleProyecto}}"><button>Eliminar Objetivo</button></a>
+            <!--        </div>
+        
+        <div id="eliminar">-->
+            {{#each detalle}}
+            <textarea type="text" id="quitar" name="objetivos" checked>{{objetivos}}</textarea>
+            <div id="Eliminar">
+                <a href="/proyecto/EliminarObjetivo/{{idDetalleProyecto}}"><button type="button">Eliminar</button></a>
             </div>
             {{/each}}
         </div>
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
+        </div>
 
-        {{#each proyectos}}
-        <form action="/proyecto/Aumentar/{{idProyecto}}" method="post">
-            {{/each}}
-            <div id="objetivos">
-                <label>Nuevos Objetivos:</label>
-                <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
-            </div>
+        <div id="listaObjetivos"></div>
 
-            <div id="listaObjetivos">
-            </div>
-
-            <div id="boton">
-                <button type="button" onclick="objetivos.crear()">Crear Objetivos</button>
-            </div>
-        </form>
-
+        <div id="boton">
+            <button type="button" onclick="objetivo1.crear()">Objetivos</button>
+        </div>
         <div id="Guardar">
             <button type="submit">Actualizar</button>
         </div>
     </div>
 </form>
 
-<script src="/js/objetivos.js"></script>
+<script src="/js/objetivos2.js"></script>
