@@ -11,7 +11,7 @@ proyectocontrolador.Mostrar = async (req, res) => {
 }
 
 proyectocontrolador.Mandar = async (req, res) => {
-    const ids = req.user.idUsuairos
+    const ids = req.user.idUsuarios
     const kolab = 1
     const { numero, NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, rol, objetivos } = req.body
     const nuevoEnvio = {

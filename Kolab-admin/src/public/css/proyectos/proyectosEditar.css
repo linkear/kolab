@@ -41,7 +41,6 @@
     left: 20%;
 }
 
-#numeroProyecto,
 #NombreProyecto,
 #Descripcion,
 #Fecha,
@@ -58,7 +57,6 @@
     left: 10%;
 }
 
-#numero,
 #nombre,
 #descripcion,
 #fecha,
@@ -82,28 +80,24 @@
     border-bottom: 6px solid #6ec3ee;
 }
 
-#NombreProyecto{
+#Descripcion{
     top: 22%;
 }
 
-#Descripcion{
+#Fecha{
     top: 29%;
 }
 
-#Fecha {
+#Mision{
     top: 43%;
 }
 
-#Mision {
+#Vision{
     top: 50%;
 }
 
-#Vision {
+#objetivos{
     top: 64%;
-}
-
-#objetivos {
-    top: 78%;
 }
 
 /*Inputs*/
