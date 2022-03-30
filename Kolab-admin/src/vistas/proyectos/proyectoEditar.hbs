@@ -29,31 +29,27 @@
         <div id="objetivos">
             <label>Objetivos:</label>
             {{#each detalle}}
-            <input type="text" id="objetivos" name="objetivos" value="{{objetivos}}" checked>
+            <input type="text" id="objetivos" name="objetivo" value="{{objetivos}}" checked>
             <div id="Eliminar">
-                <a href="/proyecto/EliminarObjetivo/{{idDetalleProyecto}}"><button>Eliminar</button></a>
+                <a href="/proyecto/EliminarObjetivo/{{idDetalleProyecto}}"><button type="button">Eliminar</button></a>
             </div>
             {{/each}}
         </div>
-        {{#each proyectos}}
-        <form action="/proyecto/Aumentar/{{idProyecto}}" method="post">
-            {{/each}}
-            <div id="objetivos">
-                <label>Objetivos:</label>
-                <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
-            </div>
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
+        </div>
 
-            <div id="listaObjetivos"></div>
+        <div id="listaObjetivos"></div>
 
-            <div id="boton">
-                <button type="button" onclick="objetivos.crear()">Objetivos</button>
-            </div>
-        </form>
+        <div id="boton">
+            <button type="button" onclick="objetivos.crear()">Objetivos</button>
+        </div>
+
         <div id="Guardar">
             <button type="submit">Actualizar</button>
         </div>
     </form>
 </div>
 
-
-<script src="/js/objetivos.js"></script>
+<script src="/js/objetivos2.js"></script>
