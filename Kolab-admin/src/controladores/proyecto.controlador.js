@@ -68,7 +68,7 @@ proyectocontrolador.actualizarProyectos = async (req, res) => {
     const { NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, objetivos } = req.body
     await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, id])
     for (let i = 0; i < objetivos.length; i++) {
-        await sql.query('UPDATE detalleproyectos set objetivos = ?, usuarioIdUsuarios = ? WHERE ProyectoIdProyecto = ?', [objetivos[i], ids, id])
+        await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos[i],  (parseInt(id)+i)])
     }
     req.flash('success', 'Se Actualizo Correctamente');
     res.redirect('/proyecto/Lista/detalle/' + id);

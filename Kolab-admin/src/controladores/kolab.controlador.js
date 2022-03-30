@@ -63,7 +63,7 @@ kolabcontrolador.actualizar = async(req, res) =>{
         actualizarEnvio.update(nuevoEnvio)
     })
     for(let i = 0; i< objetivos.length; i++){
-        await sql.query('UPDATE detallekolabs set objetivos = ?, KolabIdKolab = ? where idDetalleKolab = ?',[objetivos[i], id, ids])
+        await sql.query('UPDATE detallekolabs set objetivos = ? where idDetalleKolab = ?',[objetivos[i], (parseInt(ids)+i)])
     }
     req.flash('success', 'Exito al Actualizar')
     res.redirect('/Kolab/lista/' + ids);
