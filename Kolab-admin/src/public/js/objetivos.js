@@ -1,6 +1,6 @@
 class objetivo{
     constructor(){
-        this.contenedor = document.getElementById('objetivos')
+        this.contenedor = document.getElementById('listaObjetivos')
         this.numero = document.getElementById('numeros')
     }
     crear(){
@@ -8,6 +8,7 @@ class objetivo{
         let input = document.createElement('textarea')
         input.setAttribute('type', 'text')
         input.name = 'objetivos'
+        input.id = 'extras'
         this.contenedor.appendChild(input)
         }
     }

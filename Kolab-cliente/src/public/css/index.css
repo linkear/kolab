@@ -3,9 +3,9 @@
     background-color: #2479A4;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 150%;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 140%;
     top: 0%;
 }
 
@@ -21,23 +21,43 @@
     background-color: white;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 130%;
     max-width: 90%;
-    max-height: 90%;
+    max-height: 120%;
     left: 5%;
-    top: 5%;
+    top: 10%;
+    bottom: 5%;
 }
 
 /*Tarjetas*/
 #tarjeta{
-    background-color: #6ec3ee;
+    background-color: #6ec3ee3b;
     width: 100%;
     height: 100%;
-    max-width: 26.6%;
+    max-width: 60%;
     max-height: 20%;
     margin-left: 5%;
     margin-top: 3%;
     text-align: center;
+}
+
+/*Logo*/
+#img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 25%;
+    max-height: 40%;
+    right: 5%;
+    top: 30%;
+}
+
+#img img{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 /*Input*/
@@ -52,25 +72,15 @@
     left: 15%;
 }
 
-#username{
-    border: transparent;
-    width: 100%;
-    font-size: 20px;
-    border-bottom: 6px solid #0f7097;
-    transition: all .5s ease;
-}
-
-#username:focus{
-    border-bottom: 6px solid  #6ec3ee;
-}
-
 /*Boton*/
 #siguiente{
     position: absolute;
-    top: 80%;
-    left: 30%;
-    width: 40%;
-}
+    width: 100%;
+    height: 100%;
+    max-width: 25%;
+    max-height: 4%;
+    right: 5%;
+    bottom: 12.5%;}
 
 #siguiente button{
     width: 100%;

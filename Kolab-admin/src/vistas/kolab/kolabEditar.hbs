@@ -1,11 +1,14 @@
-<link rel="stylesheet" href="/css/kolab/kolab.css">
+<link rel="stylesheet" href="/css/kolab/kolabEditar.css">
+<div id="fondo">
+
+</div>
+
 <div id="contenedor">
     <div id="Titulo">
         <label>Editar Kolab</label>
     </div>
     {{#each kolab}}
     <form action="/Kolab/editar/{{idKolab}}" method="post">
-    <div id="fondo"></div>
     {{/each}}
         {{#each kolab}}
         <div id="Nombres">
@@ -13,21 +16,29 @@
             <input type="text" name="NombreKolab" id="NombreKolab" value="{{NombreKolab}}" checked>
         </div>
 
+        <div id="Descripcion">
+            <label> Descripción:</label>
+            <textarea type="text" name="Descripcion" id="descripcion" required>{{Descripcion}}</textarea>
+        </div>
+
         <div id="Mision">
             <label>Mision:</label>
-            <input type="text" name="mision" id="mision" value="{{Mision}}" checked>
+            <textarea type="text" name="mision" id="mision" checked>{{Mision}}</textarea>
         </div>
 
         <div id="Vision">
             <label>Vision:</label>
-            <input type="text" name="vision" id="vision" value="{{Vision}}" checked>
+            <textarea type="text" name="vision" id="vision" checked>{{Vision}}</textarea>
         </div>
 
         {{/each}}
-        <div id="objetivos">
+        <div id="objetivos">            
             <label>Objetivos:</label>
+        </div>
+        
+        <div id="listaObjetivos">
             {{#each detalle}}
-            <input type="text" id="objetivos" name="objetivos" value="{{objetivos}}" checked>
+            <textarea type="text" id="extras" name="objetivos" checked>{{objetivos}}</textarea>
             {{/each}}
         </div>
 
@@ -36,4 +47,5 @@
         </div>
     </form>
 </div>
+
 <script src="/js/ocultarnavegacion.js"></script>

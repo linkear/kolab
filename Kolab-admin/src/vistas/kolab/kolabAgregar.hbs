@@ -8,7 +8,7 @@
 
     <form action="/Kolab/agregar/" method="post">
         <div id="Nombres">
-            <label>Nombre</label>
+            <label>Nombre:</label>
             <input type="text" name="NombreKolab" id="NombreKolab" required>
         </div>
 
@@ -29,8 +29,10 @@
 
         <div id="objetivos">
             <label>Objetivos:</label>
-            <input type="text" id="numeros" checked>
+            <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
         </div>
+
+        <div id="listaObjetivos"></div>
 
         <div id="boton">
             <button type="button" onclick="objetivos.crear()">Objetivos</button>
