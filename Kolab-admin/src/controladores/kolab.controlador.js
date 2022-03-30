@@ -43,7 +43,7 @@ kolabcontrolador.Lista = async(req, res) =>{
 kolabcontrolador.mostrarEdicion = async(req, res) =>{
     const ids = req.params.id
     const kolab = await sql.query('SELECT * FROM kolabs WHERE usuarioIdUsuarios = ?',[ids])
-    const detalle = await sql.query('SELECT objetivos FROM detallekolabs WHERE KolabIdKolab = ?', [ids])
+    const detalle = await sql.query('SELECT objetivos FROM detallekolabs')
     res.render('Kolab/kolabEditar', {kolab, detalle})
 }
 
