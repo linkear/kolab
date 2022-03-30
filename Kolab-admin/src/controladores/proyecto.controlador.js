@@ -74,11 +74,11 @@ proyectocontrolador.MostarProyecto = async (req, res) => {
 proyectocontrolador.actualizarProyectos = async (req, res) => {
     const id = req.params.id
     const ids = req.user.idUsuarios
-    const { NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, objetivo, objetivos1 } = req.body
+    const { NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, objetivos, objetivos1 } = req.body
 
     await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, id])
-    for (let i = 0; i < objetivo.length; i++) {
-        await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivo[i],  (parseInt(id)+i)])
+    for (let i = 0; i < objetivos.length; i++) {
+        await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos[i],  (parseInt(id)+i)])
     }
     for (let j = 0; j < objetivos1.length; j++) {
         await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
