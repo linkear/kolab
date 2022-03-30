@@ -1,24 +1,36 @@
-<link rel="stylesheet" href="">
-<form action="/doers/detalle/{{user.idUsuarios}}" method="get"></form>
-<div id="contenido">
-    {{#each doers}}
-    <div id="cedula">
-        <p>{{Cedula}}</p>
+<link rel="stylesheet" href="/css/doers/doersDetalle.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Detalle Doer</label>
     </div>
-    <div id="Nombres">
-        <label>{{NombreDoers}}</label>
+    <form action="/doers/detalle/{{user.idUsuarios}}" method="get"></form>
+    <div id="contenido">
+        {{#each doers}}
+        <div id="Cedula">
+            <label>Cedula:</label>
+            <p>{{Cedula}}</p>
+        </div>
+        <div id="Nombre">
+            <label>Nombre Completo:</label>
+            <p>{{NombreDoers}}</p>
+        </div>
+        <div id="Edad">
+            <label>Edad:</label>
+            <p>{{Edad}}</p>
+        </div>
+        <div id="Telefono">
+            <label>Telefono:</label>
+            <p>{{Telefono}}</p>
+        </div>
+        <div id="DescripcionDoers">
+            <label>Descripción:</label>
+            <p>{{DescripcionDoers}}</p>
+        </div>
+        <div id="Editar">
+            <a href="/doers/editar/{{idDoers}}"><button>Editar</button></a>
+        </div>
+        {{/each}}
     </div>
-    <div id="Edad">
-        <p>{{Edad}}</p>
-    </div>
-    <div id="Telefono">
-        <p>{{Telefono}}</p>
-    </div>
-    <div id="Descripcion">
-        <p>{{DescripcionDoers}}</p>
-    </div>
-    <div id="Editar">
-        <a href="/doers/editar/{{idDoers}}"><button>Editar</button></a>
-    </div>
-    {{/each}}
+    
 </div>

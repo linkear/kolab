@@ -1,9 +1,14 @@
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/css/doers/doersEditar.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Editar Doer</label>
+    </div>
 {{#each doers}}
 <form action="/doers/editar/{{idDoers}}" method="post">
 {{/each}}
     <div id="contenido">
-        <div id="Rol">
+        <div id="kolab">
             {{#each rol}}
             <input type="text" name="rol" id="rol" value="{{nombreRol}}" readonly>
             {{/each}}
@@ -35,3 +40,6 @@
         {{/each}}
     </div>
 </form>
+</div>
+
+<script src="/js/ocultar.js"></script>

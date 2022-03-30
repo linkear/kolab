@@ -1,41 +1,47 @@
-<link rel="stylesheet" href="">
-<form action="/comunidad/agregar/{{user.idUsuarios}}" method="post">
-    <div id="contenido">
-        <div id="NombreComunidad">
-            <label>Nombre de la Comunidad:</label>
-            <input type="text" name="NombreComunidad" id="NombreComunidad" checked aria-checked="true">
-            <select name="proyecto" id="proyecto">
-                {{#each proyecto}}
+<link rel="stylesheet" href="/css/comunidad/comunidadAgregar.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Agregar Comunidad</label>
+    </div>
+    <form action="/comunidad/agregar/{{user.idUsuarios}}" method="post">
+        <div id="contenido">
+            <div id="NombreComunidad">
+                <label>Nombre de la Comunidad:</label>
+                <input type="text" name="NombreComunidad" id="nombreComunidad" checked aria-checked="true">
+                <select name="proyecto" id="proyecto">
+                    {{#each proyecto}}
                     <option value="{{idProyecto}}">{{NombreProyecto}}</option>
-                {{/each}}
-            </select>
-            <div id="kolab">
-            {{#each comunidad}}
-            <input type="text" name="numero" id="numero" value="{{'max(idComunidad)'}}" readonly>
-            {{/each}}
+                    {{/each}}
+                </select>
+                <div id="kolab">
+                    {{#each comunidad}}
+                    <input type="text" name="numero" id="numero" value="{{'max(idComunidad)'}}" readonly>
+                    {{/each}}
+                </div>
+            </div>
+            <div id="Descripcion">
+                <label>Descripción:</label>
+                <input type="text" name="DescripcionComunidad" id="DescripcionComunidad" checked aria-checked="true">
+            </div>
+            <div id="fecha">
+                <label>Fecha Creación:</label>
+                <input type="text" name="FechaComunidad" id="FechaComunidad" checked aria-checked="true">
+            </div>
+            <div id="responsable">
+                <label> Responsable:</label>
+                <input type="text" name="participantes" id="participantes" checked aria-checked="true">
+            </div>
+            <div id="Telefono">
+                <label> Telefono del Responsable:</label>
+                <input type="text" name="telefonoParticipante" id="telefonoParticipante" checked aria-checked="true">
+            </div>
+            <div id="Guardar">
+                <button type="submit">Guardar</button>
             </div>
         </div>
-        <div id="Descripcion">
-            <label>Descripción:</label>
-            <input type="text" name="DescripcionComunidad" id="DescripcionComunidad" checked aria-checked="true">
-        </div>
-        <div id="fecha">
-            <label>Fecha Creación:</label>
-            <input type="text" name="FechaComunidad" id="FechaComunidad" checked aria-checked="true">
-        </div>
-        <div id="responsable">
-            <label> Responsable:</label>
-            <input type="text" name="participantes" id="participantes" checked aria-checked="true">
-        </div>
-        <div id="Telefono">
-            <label> Telefono del Responsable:</label>
-            <input type="text" name="telefonoParticipante" id="telefonoParticipante" checked aria-checked="true">
-        </div>
-        <div id="Guardar">
-            <button type="submit">Guardar</button>
-        </div>
-    </div>
-</form>
+    </form>
+</div>
 
 <script src="/js/numero.js"></script>
 <script src="/js/ocultar.js"></script>

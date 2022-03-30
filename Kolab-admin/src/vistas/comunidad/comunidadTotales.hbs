@@ -1,12 +1,14 @@
-<link rel="stylesheet" href="">
-<form action="/comunidad/listaCompleta/{{user.idUsuarios}}" method="get"></form>
-<div id="Agregar">
-    <a href="/comunidad/agregar/{{user.idUsuarios}}"><button>+</button></a>
-</div>
-<div id="contenido">
-    <div class="row">
+<link rel="stylesheet" href="/css/comunidad/comunidadLista.css">
+<div id="fondo"></div>
+<div id="contenedor">
+    <div id="Titulo">
+        <label>Lista de Comunidades</label>
+    </div>
+    <form action="/comunidad/listaCompleta/{{user.idUsuarios}}" method="get"></form>
+
+    <div id="contenedor-tarjetas">
         {{#each comunidad}}
-        <div id="Tarjeta">
+        <div id="tarjeta">
             <div id="NombreComunidad">
                 <label>{{NombreComunidad}}</label>
             </div>
@@ -19,4 +21,8 @@
         </div>
         {{/each}}
     </div>
+    <div id="Agregar">
+        <a href="/comunidad/agregar/{{user.idUsuarios}}"><button>+</button></a>
+    </div>
+
 </div>
