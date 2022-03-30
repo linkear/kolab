@@ -12,7 +12,7 @@
     {{/each}}
         {{#each kolab}}
         <div id="Nombres">
-            <label>Nombre</label>
+            <label>Nombre:</label>
             <input type="text" name="NombreKolab" id="NombreKolab" value="{{NombreKolab}}" checked>
         </div>
 
@@ -22,12 +22,12 @@
         </div>
 
         <div id="Mision">
-            <label>Mision:</label>
+            <label>Misión:</label>
             <textarea type="text" name="mision" id="mision" checked>{{Mision}}</textarea>
         </div>
 
         <div id="Vision">
-            <label>Vision:</label>
+            <label>Visión:</label>
             <textarea type="text" name="vision" id="vision" checked>{{Vision}}</textarea>
         </div>
 
@@ -35,6 +35,7 @@
         <div id="objetivos">            
             <label>Objetivos:</label>
         </div>
+        
         <div id="listaObjetivos">
             {{#each detalle}}
             <textarea type="text" id="extras" name="objetivos" checked>{{objetivos}}</textarea>

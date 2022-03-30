@@ -1,12 +1,19 @@
 <link rel="stylesheet" href="/css/kolab/kolab.css">
-    <div id="fondo"></div>
+
+<div id="fondo"></div>
 
 <form action="/Kolab/lista/{{user.idUsuarios}}" method="get"></form>
 <div id="contenedor">
     <div id="tarjeta1">
+
         {{#each kolab}}
-        <div id="Nombre">
-            <p>{{NombreKolab}}</p>
+        <div id="Proyecto">
+            <label>{{NombreKolab}}</label>
+        </div>
+
+        <div id="Descripcion">
+            <label>Descripción:</label>
+            <p>{{Descripcion}}</p>
         </div>
 
         <div id="Mision">
@@ -14,31 +21,38 @@
             <p>{{Mision}}</p>
         </div>
 
-        <div id="vision">
+        <div id="Vision">
             <label>Visión:</label>
             <p>{{Vision}}</p>
         </div>
-
-        <div id="BotonEditar">
-            <a href="/Kolab/editar/{{idKolab}}"><button>Editar</button></a>
-        </div>
-
-        <div id="BotonAgregar">
-            <a href="/proyecto/agregar/{{idKolab}}"><button>Agregar Proyecto</button></a>
-        </div>
-
         {{/each}}
-    </div>
 
-    <div id="tarjeta2">
-        <div id="objetivos">
+        <div id="Objetivo">
             <label>Objetivos:</label>
+        </div>
+
+        <div id="objetivos">
             {{#each detalle}}
-            <p>
+            <ul>
                 <li>{{objetivos}}</li>
-            </p>
+            </ul>
             {{/each}}
         </div>
     </div>
+
+    {{#each kolab}}
+    <div id="BotonEditar">
+        <a href="/Kolab/editar/{{idKolab}}"><button>Editar</button></a>
+    </div>
+
+    <div id="BotonAgregar">
+        <a href="/proyecto/agregar/{{idKolab}}"><button>Agregar Proyecto</button></a>
+    </div>
+    {{/each}}
+
+    <div id="img">
+        <img src="/img/logo/kolab numeral.png">
+    </div>
 </div>
+
 <script src="/js/ocultarnavegacion.js"></script>
