@@ -2,7 +2,7 @@
 <div id="contenido">
     {{#each proyectos}}
     <form action="/proyecto/Editar/{{idProyecto}}" method="post">
-    {{/each}}
+        {{/each}}
         {{#each proyectos}}
         <div id="NombreProyecto">
             <label>Nombre del Proyecto:</label>
@@ -10,7 +10,8 @@
         </div>
         <div id="Descripcion">
             <label>Descripcion del Proyecto:</label>
-            <textarea name="DecripcionProyecto" id="descripcion" maxlength="1500" aria-checked="true">{{DecripcionProyecto}}</textarea>
+            <textarea name="DecripcionProyecto" id="descripcion" maxlength="1500"
+                aria-checked="true">{{DecripcionProyecto}}</textarea>
         </div>
         <div id="Fecha">
             <label>Fecha del Proyecto:</label>
@@ -29,6 +30,9 @@
             <label>Objetivos:</label>
             {{#each detalle}}
             <input type="text" id="objetivos" name="objetivos" value="{{objetivos}}" checked>
+            <div id="Eliminar">
+                <a href="/proyecto/EliminarObjetivo/{{idDetalleProyecto}}"><button>Eliminar</button></a>
+            </div>
             {{/each}}
         </div>
         <div id="Guardar">

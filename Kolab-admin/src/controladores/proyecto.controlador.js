@@ -51,8 +51,16 @@ proyectocontrolador.ListaDetalle = async (req, res) => {
 proyectocontrolador.eliminarProyecto = async (req, res) => {
     const id = req.params.id
     await orm.proyecto.destroy({ where: { idProyecto: id } });
+    await sql.query('DELETE FROM detalleproyectos WHERE ProyectoIdProyecto = ?',[id])
     req.flash('success', 'Se Elimino Correctamente');
     res.redirect('/proyecto/lista/' + id);
+}
+
+proyectocontrolador.EliminarObjetivo = async(req, res) =>{
+    const id = req.params.id
+    await orm.detalleProyecto.destroy({ where: { idDetalleProyecto: id } })
+    req.flash('success', 'Se Elimino Correctamente');
+    res.redirect('/proyecto/Editar/' + id);
 }
 
 proyectocontrolador.MostarProyecto = async (req, res) => {
