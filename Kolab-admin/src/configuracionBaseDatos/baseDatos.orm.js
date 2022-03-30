@@ -112,6 +112,9 @@ detalleRol.belongsTo(usuario)
 rol.hasMany(detalleRol)
 detalleRol.belongsTo(rol)
 
+kolab.hasMany(capitalizacion)
+capitalizacion.belongsTo(kolab)
+
 module.exports = {
   usuario,
   proyecto,

@@ -9,53 +9,53 @@
 {{/each}}
 
 <div id="contenido">
-
+    {{#each proyectos}}
     <div id="proyectos">
         <div>
             <p>MICROSERVICIOS</p>
             <div class="row">
-                {{#each proyectos}}
                 <div id="nombreProyecto">
                     <button>{{NombreProyecto}}</button>
                 </div>
-                {{/each}}
             </div>
         </div>
     </div>
+    {{/each}}
 
+    {{#each doers}}
     <div id="Doers">
         <div>
             <p>DOERS</p>
             <div class="row">
-                {{#each doers}}
                 <div id="doers">
                     <button>{{NombreDoers}}</button>
                 </div>
-                {{/each}}
             </div>
         </div>
     </div>
-
+    {{/each}}
+    {{#each comunidad}}
     <div id="Comunidad">
         <div>
             <p>COMUNIDAD</p>
             <div class="row">
-                {{#each comunidad}}
                 <div id="comunidad">
                     <button>{{NombreComunidad}}</button>
                 </div>
-                {{/each}}
             </div>
         </div>
     </div>
-
+    {{/each}}
+    {{#each capitalizacion}}
     <div id="Capitalizacion">
         <div>
             <p>CAPITALIZACION</p>
-            <div id="capitalizacion"></div>
+            <div id="capitalizacion">
+                <button>{{nombreCapitalizador}}</button>
+            </div>
         </div>
     </div>
-
+    {{/each}}
     <div id="Kolab">
         {{#each Kolab}}
         <p>{{NombreKolab}}</p>
