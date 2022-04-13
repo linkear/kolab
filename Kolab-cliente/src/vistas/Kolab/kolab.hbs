@@ -4,6 +4,7 @@
     <!--<img src="/img/fondo/fondo.jpg">-->
 </div>
 
+
 {{#each Kolab}}
 <form action="/Kolab/Lista/{{idKolab}}" method="get"></form>
 {{/each}}
@@ -63,3 +64,13 @@
     </div>
 
 </div>
+
+<div id="organizacion">
+    <p> La primera organiazcion digital del Ecuador</p>
+    <div id="cuadro" onmousemove="oex.mostrar()" onmouseout="oex.ocultar()">OEX</div>
+    
+    <p id="oex"></p>
+</div>
+
+
+<script src="/js/oex.js"></script>

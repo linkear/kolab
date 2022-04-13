@@ -16,6 +16,39 @@
     background-size: cover;
 }
 
+#organizacion{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    max-width: 50%;
+    max-height: 80%;
+    text-align: center;
+}
+
+#cuadro{
+    position: absolute;
+    top: 0%;
+    left: 19%;
+    width: 10%;
+    height: 10%;
+}
+
+#apararicion{
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#apararicion img{
+    width: 100%;
+    height: 100%;
+}
+
 /*Contenedor*/
 #contenido{
     position: absolute;
