@@ -11,22 +11,22 @@
 
 <div id="contenido">
     <div id="organizacion">
-    <p> La primera organiazcion digital del Ecuador</p>
-    <div id="cuadro" onmousemove="oex.mostrar()" onmouseout="oex.ocultar()">OEX</div>
-    <p id="oex"></p>
-</div>
-    
+        <p> La primera organiazcion digital del Ecuador</p>
+        <div id="cuadro" onmousemove="oex.mostrar()" onmouseout="oex.ocultar()">OEX</div>
+        <p id="oex"></p>
+    </div>
+
     <div id="proyectos">
         {{#each proyectos}}
         <div>
             <p>MICROSERVICIOS</p>
             <div class="row">
                 <div id="nombreProyecto">
-                   <a href="/proyecto/lista/{{idProyecto}}"><button>{{NombreProyecto}}</button></a>
+                    <a href="/proyecto/lista/{{idProyecto}}"><button>{{NombreProyecto}}</button></a>
                 </div>
             </div>
         </div>
-            {{/each}}
+        {{/each}}
     </div>
 
     {{#each doers}}
@@ -35,7 +35,7 @@
             <p>DOERS</p>
             <div class="row">
                 <div id="doers">
-                    <button>{{NombreDoers}}</button>
+                   <a href="/doers/lista/{{idDoers}}"><button>{{NombreDoers}}</button></a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
             <p>COMUNIDAD</p>
             <div class="row">
                 <div id="comunidad">
-                    <button>{{NombreComunidad}}</button>
+                    <a href="/comunidad/lista/{{idComunidad}}"><button>{{NombreComunidad}}</button></a>
                 </div>
             </div>
         </div>
@@ -60,12 +60,12 @@
         <div>
             <p>CAPITALIZACION</p>
             <div id="capitalizacion">
-                <button>{{nombreCapitalizador}}</button>
+                <a href="/capitalizacion/lista/{{idCapitalizacion}}"><button>{{nombreCapitalizador}}</button></a>
             </div>
         </div>
     </div>
     {{/each}}
-    
+
     <div id="Kolab">
         {{#each Kolab}}
         <p>{{NombreKolab}}</p>
