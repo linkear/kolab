@@ -1,15 +1,16 @@
 const express = require('express');
 const rutas = express.Router()
 
-const { mostrar, Mandar, ListaCompleta, lista, detalle, eliminar, traer, modificar } = require('../controladores/doers.controlador')
+const { mostrar, Mandar, ListaCompleta, lista, detalle, eliminar, traer, modificar } = require('../controladores/doers.controlador');
+const { isLoggedIn } = require('../lib/auth');
 
-rutas.get('/agregar/:id', mostrar)
-rutas.post('/agregar/:id', Mandar)
-rutas.get('/listaCompleta/:id', ListaCompleta)
-rutas.get('/Lista/:id', lista)
-rutas.get('/detalle/:id', detalle)
-rutas.get('/Eliminar/:id', eliminar)
-rutas.get('/editar/:id', traer)
-rutas.post('/editar/:id', modificar)
+rutas.get('/agregar/:id', isLoggedIn, mostrar)
+rutas.post('/agregar/:id', isLoggedIn, Mandar)
+rutas.get('/listaCompleta/:id', isLoggedIn, ListaCompleta)
+rutas.get('/Lista/:id', isLoggedIn, lista)
+rutas.get('/detalle/:id', isLoggedIn, detalle)
+rutas.get('/Eliminar/:id', isLoggedIn, eliminar)
+rutas.get('/editar/:id', isLoggedIn, traer)
+rutas.post('/editar/:id', isLoggedIn, modificar)
 
 module.exports = rutas
