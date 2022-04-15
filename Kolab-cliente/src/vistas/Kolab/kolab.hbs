@@ -10,18 +10,24 @@
 {{/each}}
 
 <div id="contenido">
-    {{#each proyectos}}
+    <div id="organizacion">
+    <p> La primera organiazcion digital del Ecuador</p>
+    <div id="cuadro" onmousemove="oex.mostrar()" onmouseout="oex.ocultar()">OEX</div>
+    <p id="oex"></p>
+</div>
+    
     <div id="proyectos">
+        {{#each proyectos}}
         <div>
             <p>MICROSERVICIOS</p>
             <div class="row">
                 <div id="nombreProyecto">
-                   <a href="/proyecto/lista/{{idProyecto}}"><button type="button">{{NombreProyecto}}</button></a>
+                   <a href="/proyecto/lista/{{idProyecto}}"><button>{{NombreProyecto}}</button></a>
                 </div>
             </div>
         </div>
+            {{/each}}
     </div>
-    {{/each}}
 
     {{#each doers}}
     <div id="Doers">
@@ -35,6 +41,7 @@
         </div>
     </div>
     {{/each}}
+
     {{#each comunidad}}
     <div id="Comunidad">
         <div>
@@ -47,6 +54,7 @@
         </div>
     </div>
     {{/each}}
+
     {{#each capitalizacion}}
     <div id="Capitalizacion">
         <div>
@@ -57,18 +65,13 @@
         </div>
     </div>
     {{/each}}
+    
     <div id="Kolab">
         {{#each Kolab}}
         <p>{{NombreKolab}}</p>
         {{/each}}
     </div>
 
-</div>
-
-<div id="organizacion">
-    <p> La primera organiazcion digital del Ecuador</p>
-    <div id="cuadro" onmousemove="oex.mostrar()" onmouseout="oex.ocultar()">OEX</div>
-    <p id="oex"></p>
 </div>
 
 
