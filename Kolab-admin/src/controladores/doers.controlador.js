@@ -14,7 +14,7 @@ doersControlador.mostrar = async (req, res) => {
 doersControlador.Mandar = async (req, res) => {
     const id = req.params.id
     const ids = req.user.idUsuarios
-    const { Cedula, NombreDoers, Edad, Telefono, DescripcionDoers, Kolab, idProyecto, rol } = req.body
+    const { Cedula, NombreDoers, Edad, Telefono, DescripcionDoers, Kolab, idProyectos, rol } = req.body
     const nuevoEnvio = {
         Cedula,
         NombreDoers,
@@ -22,7 +22,7 @@ doersControlador.Mandar = async (req, res) => {
         Telefono,
         DescripcionDoers,
         KolabIdKolab: Kolab,
-        ProyectoIdProyecto: idProyecto,
+        ProyectoIdProyecto: idProyectos,
         usuarioIdUsuarios: ids
     }
     await orm.doers.create(nuevoEnvio)

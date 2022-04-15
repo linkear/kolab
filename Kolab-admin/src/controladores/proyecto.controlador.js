@@ -21,6 +21,7 @@ proyectocontrolador.Mandar = async (req, res) => {
         visionProyecto: Vision,
         MisionProyecto: Mision,
         KolabIdKolab: kolab,
+        usuarioIdUsuarios: ids
     }
     await orm.proyecto.create(nuevoEnvio)
     if (parseInt(numeros) === 1) {
