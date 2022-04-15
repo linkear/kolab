@@ -4,66 +4,77 @@ const orm = require('../configuracionBaseDatos/baseDatos.orm')
 const sql = require('../configuracionBaseDatos/baseDatos.sql');
 
 
-kolabcontrolador.mostrar = async(req, res) =>{
+kolabcontrolador.mostrar = async (req, res) => {
     const traer = await sql.query('select * from kolabs')
-    res.render('kolab/kolabAgregar', {traer});
+    res.render('kolab/kolabAgregar', { traer });
 }
 
-kolabcontrolador.siguiente = async(req, res) =>{
-    const id  = req.user.idUsuarios
+kolabcontrolador.siguiente = async (req, res) => {
+    const id = req.user.idUsuarios
     res.redirect('/Kolab/lista/' + id)
 }
 
-kolabcontrolador.mandar = async (req, res) =>{
+kolabcontrolador.mandar = async (req, res) => {
     const ids = req.user.idUsuarios
-    const {NombreKolab, Descripcion, mision, vision, objetivos} = req.body
-    const nuevoEnvio={
+    const { NombreKolab, Descripcion, mision, vision, objetivos, unico, numeros } = req.body
+    const nuevoEnvio = {
         NombreKolab,
         Descripcion,
         Mision: mision,
         Vision: vision,
         usuarioIdUsuarios: ids
     }
-
     await orm.kolab.create(nuevoEnvio)
-    for(let i = 0; i< objetivos.length; i++){
-        await sql.query('INSERT INTO detallekolabs(objetivos,KolabIdKolab) VALUES (?,?)',[objetivos[i], ids])
+    if (parseInt(numeros) === 1) {
+        await sql.query('INSERT INTO detallekolabs(objetivos, KolabIdKolab) VALUES (?,?)', [unico, ids])
+    } else {
+        if (parseInt(numeros) > 1) {
+            for (let i = 0; i < objetivos.length; i++) {
+                await sql.query('INSERT INTO detallekolabs(objetivos,KolabIdKolab) VALUES (?,?)', [objetivos[i], ids])
+            }
+        }
     }
     req.flash('success', 'Exito al Guardar')
     res.redirect('/Kolab/lista/' + ids);
 }
 
-kolabcontrolador.Lista = async(req, res) =>{
-    const ids = req.user.idUsuarios 
-    const kolab = await sql.query('SELECT * FROM kolabs WHERE usuarioIdUsuarios = ?',[ids])
+kolabcontrolador.Lista = async (req, res) => {
+    const ids = req.user.idUsuarios
+    const kolab = await sql.query('SELECT * FROM kolabs WHERE usuarioIdUsuarios = ?', [ids])
     const detalle = await sql.query('SELECT * FROM detallekolabs WHERE KolabIdKolab = ?', [ids])
-    res.render('Kolab/kolab', {kolab, detalle})
+    res.render('Kolab/kolab', { kolab, detalle })
 }
 
-kolabcontrolador.mostrarEdicion = async(req, res) =>{
+kolabcontrolador.mostrarEdicion = async (req, res) => {
     const ids = req.params.id
-    const kolab = await sql.query('SELECT * FROM kolabs WHERE usuarioIdUsuarios = ?',[ids])
+    const kolab = await sql.query('SELECT * FROM kolabs WHERE usuarioIdUsuarios = ?', [ids])
     const detalle = await sql.query('SELECT objetivos FROM detallekolabs')
-    res.render('Kolab/kolabEditar', {kolab, detalle})
+    res.render('Kolab/kolabEditar', { kolab, detalle })
 }
 
-kolabcontrolador.actualizar = async(req, res) =>{
+kolabcontrolador.actualizar = async (req, res) => {
     const ids = req.params.id
     const id = req.user.idUsuarios
-    const {NombreKolab, Descripcion, mision, vision, objetivos} = req.body
-    const nuevoEnvio={
+    const { NombreKolab, Descripcion, mision, vision, objetivos } = req.body
+    const nuevoEnvio = {
         NombreKolab,
         Descripcion,
         Mision: mision,
         Vision: vision
     }
 
-    await orm.kolab.findOne({ where: { idKolab: ids}})
-    .then( actualizarEnvio => {
-        actualizarEnvio.update(nuevoEnvio)
-    })
-    for(let i = 0; i< objetivos.length; i++){
-        await sql.query('UPDATE detallekolabs set objetivos = ? where idDetalleKolab = ?',[objetivos[i], (parseInt(ids)+i)])
+    await orm.kolab.findOne({ where: { idKolab: ids } })
+        .then(actualizarEnvio => {
+            actualizarEnvio.update(nuevoEnvio)
+        })
+    if (objetivos.length > 10) {
+        await sql.query('UPDATE detallekolabs set objetivos = ? where idDetalleKolab = ?', [objetivos, parseInt(ids)])
+    } else {
+        if (objetivos.length >= 2 && objetivos.length <= 10) {
+            for (let i = 0; i < objetivos.length; i++) {
+                await sql.query('UPDATE detallekolabs set objetivos = ? where idDetalleKolab = ?', [objetivos[i], (parseInt(ids) + i)])
+            }
+        }
     }
     req.flash('success', 'Exito al Actualizar')
     res.redirect('/Kolab/lista/' + ids);
