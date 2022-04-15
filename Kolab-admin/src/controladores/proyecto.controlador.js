@@ -13,7 +13,7 @@ proyectocontrolador.Mostrar = async (req, res) => {
 proyectocontrolador.Mandar = async (req, res) => {
     const ids = req.user.idUsuarios
     const kolab = 1
-    const { numero, NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, rol, objetivos } = req.body
+    const { numero, NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, rol, objetivos, unico, numeros } = req.body
     const nuevoEnvio = {
         NombreProyecto,
         DecripcionProyecto,
@@ -23,8 +23,14 @@ proyectocontrolador.Mandar = async (req, res) => {
         KolabIdKolab: kolab,
     }
     await orm.proyecto.create(nuevoEnvio)
-    for (let i = 0; i < objetivos.length; i++) {
-        await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos[i], numero, ids])
+    if (parseInt(numeros) === 1) {
+        await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [unico, numero, ids])
+    } else {
+        if (parseInt(numeros) > 1) {
+            for (let i = 0; i < objetivos.length; i++) {
+                await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos[i], numero, ids])
+            }
+        }
     }
     if (rol === 'administrador') {
         res.redirect('/proyecto/lista/' + kolab);
@@ -51,12 +57,12 @@ proyectocontrolador.ListaDetalle = async (req, res) => {
 proyectocontrolador.eliminarProyecto = async (req, res) => {
     const id = req.params.id
     await orm.proyecto.destroy({ where: { idProyecto: id } });
-    await sql.query('DELETE FROM detalleproyectos WHERE ProyectoIdProyecto = ?',[id])
+    await sql.query('DELETE FROM detalleproyectos WHERE ProyectoIdProyecto = ?', [id])
     req.flash('success', 'Se Elimino Correctamente');
     res.redirect('/proyecto/lista/' + id);
 }
 
-proyectocontrolador.EliminarObjetivo = async(req, res) =>{
+proyectocontrolador.EliminarObjetivo = async (req, res) => {
     const id = req.params.id
     const ids = req.user.idUsuarios
     await orm.detalleProyecto.destroy({ where: { idDetalleProyecto: id } })
@@ -74,17 +80,41 @@ proyectocontrolador.MostarProyecto = async (req, res) => {
 proyectocontrolador.actualizarProyectos = async (req, res) => {
     const id = req.params.id
     const ids = req.user.idUsuarios
-    const { NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, objetivos, objetivos1 } = req.body
+    const { NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, objetivos, objetivos1, unico, numeros } = req.body
 
     await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, id])
-    for (let i = 0; i < objetivos.length; i++) {
-        await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos[i],  (parseInt(id)+i)])
-    }
-    for (let j = 0; j < objetivos1.length; j++) {
-        await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
+
+    if ((objetivos.length > 10)) {
+        await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos, parseInt(id)])
+        if (parseInt(numeros) === 1) {
+            await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [unico, id, ids])
+        } else {
+            if (parseInt(numeros) > 1) {
+                for (let j = 0; j < objetivos1.length; j++) {
+                    await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
+                }
+            }
+        } if (numeros === '') {
+            console.log('No hay nuevos objetivos')
+        }
+    } else {
+        if (objetivos.length >= 2 && objetivos.length <= 10) {
+            for (let i = 0; i < objetivos.length; i++) {
+                await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos[i], (parseInt(id) + i)])
+            }
+            if (parseInt(numeros) > 1) {
+                for (let j = 0; j < objetivos1.length; j++) {
+                    await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
+                }
+            } else {
+                if (numeros === '') {
+                    console.log('No hay nuevos objetivos')
+                }
+            }
+        }
     }
     req.flash('success', 'Se Actualizo Correctamente');
     res.redirect('/proyecto/Lista/detalle/' + id);
 }
- 
+
 module.exports = proyectocontrolador
