@@ -27,6 +27,7 @@ const capitalizacionModelo = require('../modelos/capitalizacion.modelo')
 const rolModelo = require('../modelos/rol.modelo')
 const detalleRolmodelo = require('../modelos/detalleRol.modelo');
 const contadorModelo = require('../modelos/contador.modelo')
+const tipoComunidadModelo = require('../modelos/tipoComunidad')
 
 
 const sequelize = new Sequelize(
@@ -71,6 +72,7 @@ const capitalizacion = capitalizacionModelo(sequelize, Sequelize)
 const rol = rolModelo(sequelize, Sequelize)
 const detalleRol = detalleRolmodelo(sequelize, Sequelize)
 const contador = contadorModelo(sequelize, Sequelize)
+const tipoComunidad = tipoComunidadModelo(sequelize, Sequelize)
 
 //Relaciones 
 usuario.hasMany(kolab)
@@ -115,6 +117,9 @@ detalleRol.belongsTo(rol)
 kolab.hasMany(capitalizacion)
 capitalizacion.belongsTo(kolab)
 
+tipoComunidad.hasMany(comunidad)
+comunidad.belongsTo(tipoComunidad)
+
 module.exports = {
   usuario,
   proyecto,
@@ -128,5 +133,6 @@ module.exports = {
   capitalizacion, 
   rol,
   detalleRol,
-  contador
+  contador,
+  tipoComunidad
 }

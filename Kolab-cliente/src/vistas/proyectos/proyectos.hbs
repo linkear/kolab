@@ -1,1 +1,53 @@
-<form action="/proyecto/lista/{{user.idUsuarios}}" method="get"></form>
+{{#each proyecto}}
+<form action="/proyecto/lista/{{idProyecto}}" method="get"></form>
+{{/each}}
+<div id="fondo"></div>
+
+<div id="contenido">
+    {{#each proyecto}}
+    <div id="fecha">
+        <label>Fecha de Creación:</label>
+        <p>{{fechaProyecto}}</p>
+    </div>
+    <div id="titulo">
+        <label>{{NombreProyecto}}</label>
+    </div>
+    <div id="descripcion">
+        <p>{{DecripcionProyecto}}</p>
+    </div>
+    <div id="vision">
+        <label>Visión:</label>
+        <p>{{visionProyecto}}</p>
+    </div>
+    <div id="mision">
+        <label>Misión:</label>
+        <p>{{MisionProyecto}}</p>
+    </div>
+    {{/each}}
+    {{#each objetivos}}
+    <div id="objetivos">
+        <label>Objetivos:</label>
+        <p>{{objetivos}}</p>
+    </div>
+    {{/each}}
+    <div id="doers">
+        {{#each doers}}
+        <div dir="numeros">
+            <label>N°:</label>
+            <p>{{idDoers}}</p>
+        </div>
+        <div id="integrantes">
+            <label>Integrantes:</label>
+            <p>{{NombreDoers}}</p>
+        </div>
+        <div id="edad">
+            <label>Edad:</label>
+            <p>{{Edad}}</p>
+        </div>
+        <div id="Telefono">
+            <label>Telefono:</label>
+            <p>{{Telefono}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>

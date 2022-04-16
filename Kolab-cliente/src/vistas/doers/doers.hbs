@@ -1,1 +1,31 @@
-<form action="/doers/lista/{{user.idUsuarios}}" method="get"></form>
+{{#each doers}}
+<form action="/doers/lista/{{idDoers}}" method="get"></form>
+{{/each}}
+<div id="fondo"></div>
+
+<di id="contenido">
+    {{#each doers}}
+    <div id="titulo">
+        <label>Doers</label>
+    </div>
+    <div id="Cedula">
+        <label>Cedula:</label>
+        <p>{{Cedula}}</p>
+    </div>
+    <div id="Nombre">
+        <label>Nombres:</label>
+        <p>{{NombreDoers}}</p>
+    </div>
+    <div id="Edad">
+        <label>Edad</label>
+        <p>{{Edad}}</p>
+    </div>
+    <div id="Celular">
+        <label>Celular:</label>
+        <p>{{Telefono}}</p>
+    </div>
+    <div id="Descripcion">
+        <p>{{DescripcionDoers}}</p>
+    </div>
+    {{/each}}
+</di>

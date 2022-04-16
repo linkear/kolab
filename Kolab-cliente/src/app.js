@@ -59,5 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routers
 app.use(require('./rutas/index.rutas'))
 app.use('/Kolab',require('./rutas/kolab.rutas'))
+app.use('/proyecto', require('./rutas/proyecto.rutas'))
+app.use('/doers', require('./rutas/doers.proyecto'))
 
 module.exports = app;
