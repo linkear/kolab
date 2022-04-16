@@ -68,5 +68,6 @@ app.use('/proyecto',require('./rutas/proyecto.rutas'))
 app.use('/doers', require('./rutas/doers.rutas'))
 app.use('/comunidad', require('./rutas/comunidad.rutas'))
 app.use('/capitalizacion', require('./rutas/capitalizacion'))
+app.use('/tipoComunidad', require('./rutas/tipoComunidad.rutas'))
 
 module.exports = app;

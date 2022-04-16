@@ -21,6 +21,17 @@ indexControlador.Verificar = async(req, res)=>{
             console.log('ya existe')
         }
     }
+
+    const tipo = await sql.query('select * form tipocomunidades')
+    if(tipo.length == 0){
+        const tipos = tipo[0]
+        if(tipos === undefined){
+            await sql.query('insert into tipocomunidades(idTipoComunidad, tipoComunidades) values (1, "Economia")')
+        }
+    }else{ 
+        console.log('Ya existe')
+    }
+
     const {username} = req.body
     const verificacion = await orm.usuario.findOne({ where: { username: username }})
     if( verificacion){

@@ -13,7 +13,7 @@ proyectocontrolador.Mostrar = async (req, res) => {
 proyectocontrolador.Mandar = async (req, res) => {
     const ids = req.user.idUsuarios
     const kolab = 1
-    const { numero, NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, rol, objetivos, unico, numeros } = req.body
+    const { numeroProyecto, NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, rol, objetivos, unico, numeros } = req.body
     const nuevoEnvio = {
         NombreProyecto,
         DecripcionProyecto,
@@ -24,12 +24,12 @@ proyectocontrolador.Mandar = async (req, res) => {
         usuarioIdUsuarios: ids
     }
     await orm.proyecto.create(nuevoEnvio)
-    if (parseInt(numeros) === 1) {
-        await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [unico, numero, ids])
+    if (parseInt(numeros) == 1) {
+        await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [unico, numeroProyecto, ids])
     } else {
         if (parseInt(numeros) > 1) {
             for (let i = 0; i < objetivos.length; i++) {
-                await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos[i], numero, ids])
+                await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos[i], numeroProyecto, ids])
             }
         }
     }

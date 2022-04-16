@@ -16,7 +16,7 @@
         <div id="numeroProyecto">
             <label> Proyecto N°</label>
             {{#each idProyecto}}
-            <input type="text" name="numero" id="numero" value="{{'max(idProyecto)'}}" readonly>
+            <input type="text" name="numeroProyecto" id="numero" value="{{'max(idProyecto)'}}" readonly>
             {{/each}}
         </div>
 
@@ -46,7 +46,7 @@
 
         <div id="objetivos">
             <label>Objetivos:</label>
-            <input type="text" id="numeros" placeholder="Ingrese su número de objetivos" checked>
+            <input type="text" id="numeros" name="numeros" placeholder="Ingrese su número de objetivos" checked>
         </div>
 
         <div id="listaObjetivos"></div>
