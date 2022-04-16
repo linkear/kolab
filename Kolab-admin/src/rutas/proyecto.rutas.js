@@ -9,7 +9,6 @@ rutas.post('/agregar/:id', isLoggedIn ,Mandar)
 rutas.get('/Lista/:id', isLoggedIn ,ListaTodo)
 rutas.get('/Lista/detalle/:id', isLoggedIn ,ListaDetalle)
 rutas.get('/Eliminar/:id', isLoggedIn ,eliminarProyecto)
-rutas.get('/EliminarObjetivo/:id', isLoggedIn ,EliminarObjetivo)
 rutas.get('/Editar/:id', isLoggedIn ,MostarProyecto)
 rutas.post('/Editar/:id', isLoggedIn ,actualizarProyectos)
 

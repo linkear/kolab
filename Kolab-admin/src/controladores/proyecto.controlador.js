@@ -101,36 +101,34 @@ proyectocontrolador.actualizarProyectos = async (req, res) => {
     } = req.body
 
     await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, id])
-
-    if ((objetivos.length > 10)) {
-        await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos, parseInt(id)])
-        if (parseInt(numeros) === 1) {
-            await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [unico, id, ids])
-        } else {
-            if (parseInt(numeros) > 1) {
-                for (let j = 0; j < objetivos1.length; j++) {
-                    await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
-                }
-            }
-        }
-        if (numeros === '') {
-            console.log('No hay nuevos objetivos')
-        }
+    
+    await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos, parseInt(id)])
+    if (parseInt(numeros) === 1) {
+        await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [unico, id, ids])
     } else {
-        if (objetivos.length >= 2 && objetivos.length <= 10) {
-            for (let i = 0; i < objetivos.length; i++) {
-                await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos[i], (parseInt(id) + i)])
-            }
-            if (parseInt(numeros) > 1) {
-                for (let j = 0; j < objetivos1.length; j++) {
-                    await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
-                }
-            } else {
-                if (numeros === '') {
-                    console.log('No hay nuevos objetivos')
-                }
+        if (parseInt(numeros) > 1) {
+            for (let j = 0; j < objetivos1.length; j++) {
+                await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
             }
         }
+    }
+    if (numeros === '') {
+        console.log('No hay nuevos objetivos')
+    }
+    if (objetivos.length >= 2 && objetivos.length <= 10) {
+        for (let i = 0; i < objetivos.length; i++) {
+            await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE ProyectoIdProyecto = ?', [objetivos[i], (parseInt(id) + i)])
+        }
+        if (parseInt(numeros) > 1) {
+            for (let j = 0; j < objetivos1.length; j++) {
+                await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
+            }
+        } else {
+            if (numeros === '') {
+                console.log('No hay nuevos objetivos')
+            }
+        }
+
     }
     req.flash('success', 'Se Actualizo Correctamente');
     res.redirect('/proyecto/Lista/detalle/' + id);

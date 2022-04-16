@@ -4,6 +4,11 @@ class objetivo {
         this.numero = document.getElementById('numeros')
         this.unico = document.getElementById('Unico')
     }
+
+    inicio() {
+        this.unico.style.display = 'none'
+    }
+
     crear() {
         if (parseInt(this.numero.value) === 1) {
             this.unico.style.display = 'block'
@@ -20,10 +25,6 @@ class objetivo {
                 alert('Este campo permite desde 1 a 4 objetivos')
             }
         }
-    }
-
-    inicio() {
-        this.unico.style.display = 'none'
     }
 }
 
