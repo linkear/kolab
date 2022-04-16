@@ -7,13 +7,27 @@ proyectocontrolador.Mostrar = async (req, res) => {
     const id = req.params.id
     const rol = await sql.query('select r.nombreRol from rols r join detallerols d on  d.RolIdRol = r.idRol WHERE d.usuarioIdUsuarios = ?', [id])
     const idProyecto = await sql.query('select max(idProyecto) from proyectos')
-    res.render('proyectos/proyectoAgregar', { rol, idProyecto });
+    res.render('proyectos/proyectoAgregar', {
+        rol,
+        idProyecto
+    });
 }
 
 proyectocontrolador.Mandar = async (req, res) => {
     const ids = req.user.idUsuarios
     const kolab = 1
-    const { numero, NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, rol, objetivos, unico, numeros } = req.body
+    const {
+        numero,
+        NombreProyecto,
+        DecripcionProyecto,
+        fechaProyecto,
+        Vision,
+        Mision,
+        rol,
+        objetivos,
+        unico,
+        numeros
+    } = req.body
     const nuevoEnvio = {
         NombreProyecto,
         DecripcionProyecto,
@@ -45,43 +59,57 @@ proyectocontrolador.Mandar = async (req, res) => {
 proyectocontrolador.ListaTodo = async (req, res) => {
     const id = req.params.id
     const listaProyecto = await sql.query('SELECT * FROM proyectos WHERE KolabIdKolab = ?', [id])
-    res.render('proyectos/proyecto', { listaProyecto })
+    res.render('proyectos/proyecto', {
+        listaProyecto
+    })
 }
 
 proyectocontrolador.ListaDetalle = async (req, res) => {
     const id = req.params.id
     const detalle = await sql.query('SELECT * FROM detalleproyectos WHERE ProyectoIdProyecto = ?', [id])
     const proyecto = await sql.query('SELECT * FROM proyectos  WHERE idProyecto = ?', [id])
-    res.render('proyectos/proyectoDetalle', { proyecto, detalle })
+    res.render('proyectos/proyectoDetalle', {
+        proyecto,
+        detalle
+    })
 }
 
 proyectocontrolador.eliminarProyecto = async (req, res) => {
     const id = req.params.id
-    await orm.proyecto.destroy({ where: { idProyecto: id } });
+    await orm.proyecto.destroy({
+        where: {
+            idProyecto: id
+        }
+    });
     await sql.query('DELETE FROM detalleproyectos WHERE ProyectoIdProyecto = ?', [id])
     req.flash('success', 'Se Elimino Correctamente');
     res.redirect('/proyecto/lista/' + id);
-}
-
-proyectocontrolador.EliminarObjetivo = async (req, res) => {
-    const id = req.params.id
-    const ids = req.user.idUsuarios
-    await orm.detalleProyecto.destroy({ where: { idDetalleProyecto: id } })
-    req.flash('success', 'Se Elimino Correctamente');
-    res.redirect('/proyecto/Editar/' + ids);
 }
 
 proyectocontrolador.MostarProyecto = async (req, res) => {
     const id = req.params.id
     const detalle = await sql.query('SELECT * FROM detalleproyectos WHERE ProyectoIdProyecto = ?', [id])
     const proyectos = await sql.query('select * from proyectos where idProyecto = ?', [id])
-    res.render('proyectos/proyectoEditar', { proyectos, detalle })
+    res.render('proyectos/proyectoEditar', {
+        proyectos,
+        detalle
+    })
 }
 
 proyectocontrolador.actualizarProyectos = async (req, res) => {
     const id = req.params.id
     const ids = req.user.idUsuarios
-    const { NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, objetivos, objetivos1, unico, numeros } = req.body
+    const {
+        NombreProyecto,
+        DecripcionProyecto,
+        fechaProyecto,
+        Vision,
+        Mision,
+        objetivos,
+        objetivos1,
+        unico,
+        numeros
+    } = req.body
 
     await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, id])
 
@@ -95,7 +123,8 @@ proyectocontrolador.actualizarProyectos = async (req, res) => {
                     await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [objetivos1[j], id, ids])
                 }
             }
-        } if (numeros === '') {
+        }
+        if (numeros === '') {
             console.log('No hay nuevos objetivos')
         }
     } else {
