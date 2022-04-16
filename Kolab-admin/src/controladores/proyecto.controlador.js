@@ -102,7 +102,7 @@ proyectocontrolador.actualizarProyectos = async (req, res) => {
 
     await sql.query('UPDATE proyectos set NombreProyecto = ?, DecripcionProyecto = ?, fechaProyecto = ?, visionProyecto = ?, MisionProyecto = ? WHERE idProyecto = ?', [NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, id])
 
-    if (objetivos.length > 30) {
+    if (objetivos.length > 10) {
         await sql.query('UPDATE detalleproyectos set objetivos = ? WHERE idDetalleProyecto = ?', [objetivos, parseInt(id)])
         if (parseInt(numeros) === 1) {
             await sql.query('INSERT INTO detalleproyectos(objetivos, ProyectoIdProyecto, usuarioIdUsuarios) VALUES (?,?,?)', [unico, id, ids])
