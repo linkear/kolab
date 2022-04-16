@@ -5,8 +5,9 @@ const sql = require('../configuracionBaseDatos/baseDatos.sql')
 
 doersControlador.mostrar = async (req, res) => {
     const id = req.user.idUsuarios
+    const ids = req.params.id
     const kolab = await sql.query('select max(idKolab) from kolabs where usuarioIdUsuarios = ?', [id])
-    const proyecto = await sql.query('select idProyecto  from proyectos where usuarioIdUsuarios = ?', [id])
+    const proyecto = await sql.query('select idProyecto  from proyectos where idProyecto = ?', [ids])
     const rol = await sql.query('select r.nombreRol from rols r join detallerols d on  d.RolIdRol = r.idRol WHERE d.usuarioIdUsuarios = ?', [id])
     res.render('doers/doersAgregar', { kolab, proyecto, rol });
 }
