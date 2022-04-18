@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="">
+{{#each capitalizador}}
+<form action="/capitalizacion/detalle/{{idCapitalizacion}}" method="get"></form>
+<div id="contenido">
+    <div id="titulo">
+        <label>{{nombreCapitalizador}}</label>
+    </div>
+    <div id="Descripcion">
+        <p>{{descripcionCapitalizador}}</p>
+    </div>
+</div>
+{{/each}}

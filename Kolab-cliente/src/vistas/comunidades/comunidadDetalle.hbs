@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="">
+{{#each comunidadDetalle}}
+<form action="/comunidad/detalle/{{idComunidad}}" method="get"></form>
+<div id="contenido">
+    <div id="titulo">
+        <label>{{NombreComunidad}}</label>
+    </div>
+    <div id="Descripcion">
+        <p>{{DescripcionComunidad}}</p>
+    </div>
+    <div id="fecha">
+        <p>{{FechaComunidad}}</p>
+    </div>
+    <div id="participantes">
+        <p>{{participantes}}</p>
+    </div>
+    <div id="telefonoParticipante">
+        <p>{{telefonoParticipante}}</p>
+    </div>
+</div>
+{{/each}}

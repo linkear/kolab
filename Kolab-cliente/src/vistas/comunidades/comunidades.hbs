@@ -1,1 +1,23 @@
-<form action="/comunidades/lista/{{user.idUsuarios}}" method="get"></form>
+{{#each comunidad}}
+<form action="/comunidades/lista/{{idComunidad}}" method="get"></form>
+{{/each}}
+<div id="contenido">
+    <div class="row">
+        {{#each comunidad}}
+        <div id="tarjeta">
+            <div id="titulo">
+                <label>Comunidades</label>
+            </div>
+            <div id="Nombre">
+                <p>{{NombreComunidad}}</p>
+            </div>
+            <div id="Descripcion">
+                <p>{{DescripcionComunidad}}</p>
+            </div>
+            <div id="Detalle">
+                <a href="/comunidades/detalle/{{idComunidad}}"><button type="button">Detalle</button></a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
