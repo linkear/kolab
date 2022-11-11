@@ -16,7 +16,18 @@ proyectocontrolador.Mostrar = async (req, res) => {
 proyectocontrolador.Mandar = async (req, res) => {
     const ids = req.user.idUsuarios
     const kolab = 1
-    const { numeroProyecto, NombreProyecto, DecripcionProyecto, fechaProyecto, Vision, Mision, rol, objetivos, unico, numeros } = req.body
+    const {
+        numeroProyecto,
+        NombreProyecto,
+        DecripcionProyecto,
+        fechaProyecto,
+        Vision,
+        Mision,
+        rol,
+        objetivos,
+        unico,
+        numeros
+    } = req.body
     const nuevoEnvio = {
         NombreProyecto,
         DecripcionProyecto,
@@ -36,6 +47,7 @@ proyectocontrolador.Mandar = async (req, res) => {
             }
         }
     }
+    
     if (rol === 'administrador') {
         res.redirect('/proyecto/lista/' + kolab);
     } else {

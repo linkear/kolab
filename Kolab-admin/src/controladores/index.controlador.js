@@ -22,7 +22,7 @@ indexControlador.Verificar = async(req, res)=>{
         }
     }
 
-    const tipo = await sql.query('select * form tipocomunidades')
+    const tipo = await sql.query('select * from tipocomunidades')
     if(tipo.length == 0){
         const tipos = tipo[0]
         if(tipos === undefined){
